@@ -1,0 +1,1888 @@
+{
+	"info": {
+		"_postman_id": "f21d1709-dfa7-44b6-b814-5d9949ffcc35",
+		"name": "sharepoint rest api- DIRECT",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "31214391"
+	},
+	"item": [
+		{
+			"name": "sharepoint-createAssertion token using LOCALHOST",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8081/api/beep/client-assertion",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"api",
+						"beep",
+						"client-assertion"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GDIT sharepoint auth with certficate",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "client_id",
+							"value": "5f27645f-f083-4abb-bae6-c4b8dc7ddf44",
+							"type": "text"
+						},
+						{
+							"key": "scope",
+							"value": "https://thecloudidt.sharepoint.us/.default",
+							"type": "text"
+						},
+						{
+							"key": "response_type",
+							"value": "code",
+							"type": "text"
+						},
+						{
+							"key": "grant_type",
+							"value": "client_credentials",
+							"type": "text"
+						},
+						{
+							"key": "client_assertion_type",
+							"value": "urn:ietf:params:oauth:client-assertion-type:jwt-bearer",
+							"type": "text"
+						},
+						{
+							"key": "client_assertion",
+							"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsIng1dCI6IjRQK0s5NTBJT1IwcFBmT3ZtTzNvU3VreXFoWT0ifQ.eyJhdWQiOiJodHRwczovL2xvZ2luLm1pY3Jvc29mdG9ubGluZS51cy9kNzRhZDEwNy1lMGEzLTQ1ZmYtYWE5Yy0yODZmNzczMjZhNzAvb2F1dGgyL3YyLjAvdG9rZW4iLCJpc3MiOiI1ZjI3NjQ1Zi1mMDgzLTRhYmItYmFlNi1jNGI4ZGM3ZGRmNDQiLCJzdWIiOiI1ZjI3NjQ1Zi1mMDgzLTRhYmItYmFlNi1jNGI4ZGM3ZGRmNDQiLCJqdGkiOiI3M2EwYjNkZTMzN2JjMzZiN2IyZTYzZTFkYzUwODZkOTM1ZjkzYzRkNWE0YzA5MjVjMjk2OGNjYjA0N2E5MTVlIiwiZXhwIjoxNzMxNjg1NTQzLCJuYmYiOjE3MDAxNDk0ODMsImlhdCI6MTcwMDE0OTU0M30.bLw8SwDUiC1TkIG72NrO9tEr8uYzg9-oxhbt8Ta7QQbJNW2-fm5vw0YwaRq-2D8KFwI3o8PHprZlchaal1rFqjNPlGp98_wBBafOnp1aGDaKazS4KhtoHtGzWRq8_JGCz4EG2vIGtRWdGsCrfXSCldUoT7QM12hKqWMeHvUBVxqUogZb4QPYMbgrbggNDQTZgy5st9Zt23X5l7JPjJjtq2dlHt4cfksFQQklhxPWStbAjuC2YPc3gJxGh1k1b20VpI3EMl9XahLjjvf6V7lZVH-FtYWUJ_RfA8qfz9zuWl33mIuVyYnhQFrfzQ4g_S8J_smRcXio9T92AseDr7lXdw\n",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://login.microsoftonline.us/d74ad107-e0a3-45ff-aa9c-286f77326a70/oauth2/v2.0/token",
+					"protocol": "https",
+					"host": [
+						"login",
+						"microsoftonline",
+						"us"
+					],
+					"path": [
+						"d74ad107-e0a3-45ff-aa9c-286f77326a70",
+						"oauth2",
+						"v2.0",
+						"token"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get  folder",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6ImxITEl1NG1vS3F6UGNva3dsZkNSUEh5amw1ZyIsImtpZCI6ImxITEl1NG1vS3F6UGNva3dsZkNSUEh5amw1ZyJ9.eyJhdWQiOiJodHRwczovL3RoZWNsb3VkaWR0LnNoYXJlcG9pbnQudXMiLCJpc3MiOiJodHRwczovL3N0cy53aW5kb3dzLm5ldC9kNzRhZDEwNy1lMGEzLTQ1ZmYtYWE5Yy0yODZmNzczMjZhNzAvIiwiaWF0IjoxNzAwMTYxMTY4LCJuYmYiOjE3MDAxNjExNjgsImV4cCI6MTcwMDE2NTA2OCwiYWlvIjoiNDJKZ1lQZ2NIZjE0U2N6WGZYUGVGUng3Y08rTk53QT0iLCJhcHBfZGlzcGxheW5hbWUiOiJHRElULU11bGVTb2Z0LUJFRVAiLCJhcHBpZCI6IjVmMjc2NDVmLWYwODMtNGFiYi1iYWU2LWM0YjhkYzdkZGY0NCIsImFwcGlkYWNyIjoiMiIsImlkcCI6Imh0dHBzOi8vc3RzLndpbmRvd3MubmV0L2Q3NGFkMTA3LWUwYTMtNDVmZi1hYTljLTI4NmY3NzMyNmE3MC8iLCJpZHR5cCI6ImFwcCIsIm9pZCI6ImQ0ZTYzN2RhLTk3YTEtNDc2MC1hNTA3LWMxNDY0MThhOTRiNSIsInJoIjoiMC5Dd01BQjlGSzE2UGdfMFdxbkNodmR6SnFjQU1BQUFBQUFQRVB6Z0FBQUFBQUFBQURBQUEuIiwicm9sZXMiOlsiU2l0ZXMuTWFuYWdlLkFsbCIsIlNpdGVzLlJlYWRXcml0ZS5BbGwiLCJTaXRlcy5GdWxsQ29udHJvbC5BbGwiXSwic2lkIjoiM2NiODIwNmEtYTYyYS00MmE1LTg3ZDQtZDBjZDY4M2Y5NGQ2Iiwic3ViIjoiZDRlNjM3ZGEtOTdhMS00NzYwLWE1MDctYzE0NjQxOGE5NGI1IiwidGlkIjoiZDc0YWQxMDctZTBhMy00NWZmLWFhOWMtMjg2Zjc3MzI2YTcwIiwidXRpIjoicmFDNWhzZFVXRUtLUjdDYWVnZ01BQSIsInZlciI6IjEuMCJ9.hir0VgPUI3NzrO1Mm32DLAHreUfzXNauuIuwzFD9jd65-99qLGV3BkPk9Ee2ydS40m_SOa-rvz0ITOFL39kQ2OB5LCoMGQLb7h9UmFlBThSaRnLxyUrFhZ1ox3FZqn7wlDeh9Lmmr5nJp7jvqHjfndZjqm4G-097RVcieww8r95aTovChvZiRONh-rDgj88WEO95cxQ3Yq_QugQzWyS30eDrbt0NmJwHZsxhYfq1TXMhZj9gorcoDjOB0VvtIn9Mcv_Qkaq-pSmMXMEg6PbDfin_Iw-fZ1MQ9N3wZClrh3vVVW3_IL-y3-k05IVdNrA5FgR4h6Y2DSJ_yaweGUk72g",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json;odata=verbose",
+						"type": "text"
+					},
+					{
+						"key": "Content-Length",
+						"value": "4",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "X-RequestDigest",
+						"value": "0x463521BD311D3FFF22E1D0290275621A690AFB113450067015B8D9690C6CF51D9881A8AC4A4D1C22602F105661678BFEA00E51307F8F54CDAF1096E000EEB056",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"url": {
+					"raw": "https://{{host}}/teams/Cashops/_api/web/GetFolderByServerRelativeUrl('/teams/Cashops/Shared Documents')/Folders",
+					"protocol": "https",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"teams",
+						"Cashops",
+						"_api",
+						"web",
+						"GetFolderByServerRelativeUrl('",
+						"teams",
+						"Cashops",
+						"Shared Documents')",
+						"Folders"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Get folder non verbose",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Length",
+								"value": "4",
+								"type": "text",
+								"disabled": true
+							},
+							{
+								"key": "X-RequestDigest",
+								"value": "0x463521BD311D3FFF22E1D0290275621A690AFB113450067015B8D9690C6CF51D9881A8AC4A4D1C22602F105661678BFEA00E51307F8F54CDAF1096E000EEB056",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://v7ldn.sharepoint.com/sites/Cashops/_api/web/GetFolderByServerRelativeUrl('/sites/Cashops/Shared Documents')/Folders('New Document set')",
+							"protocol": "https",
+							"host": [
+								"v7ldn",
+								"sharepoint",
+								"com"
+							],
+							"path": [
+								"sites",
+								"Cashops",
+								"_api",
+								"web",
+								"GetFolderByServerRelativeUrl('",
+								"sites",
+								"Cashops",
+								"Shared Documents')",
+								"Folders('New Document set')"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Cache-Control",
+							"value": "private, max-age=0"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json;odata=minimalmetadata;streaming=true;charset=utf-8"
+						},
+						{
+							"key": "Content-Encoding",
+							"value": "gzip"
+						},
+						{
+							"key": "Expires",
+							"value": "Tue, 19 Sep 2023 20:28:18 GMT"
+						},
+						{
+							"key": "Last-Modified",
+							"value": "Wed, 04 Oct 2023 20:28:18 GMT"
+						},
+						{
+							"key": "Vary",
+							"value": "Origin,Accept-Encoding"
+						},
+						{
+							"key": "P3P",
+							"value": "CP=\"ALL IND DSP COR ADM CONo CUR CUSo IVAo IVDo PSA PSD TAI TELo OUR SAMo CNT COM INT NAV ONL PHY PRE PUR UNI\""
+						},
+						{
+							"key": "X-NetworkStatistics",
+							"value": "0,525568,0,122,242524,0,263871"
+						},
+						{
+							"key": "X-SharePointHealthScore",
+							"value": "2"
+						},
+						{
+							"key": "X-SP-SERVERSTATE",
+							"value": "ReadOnly=0"
+						},
+						{
+							"key": "DATASERVICEVERSION",
+							"value": "3.0"
+						},
+						{
+							"key": "SPClientServiceRequestDuration",
+							"value": "16"
+						},
+						{
+							"key": "SPRequestDuration",
+							"value": "17"
+						},
+						{
+							"key": "X-AspNet-Version",
+							"value": "4.0.30319"
+						},
+						{
+							"key": "X-DataBoundary",
+							"value": "NONE"
+						},
+						{
+							"key": "X-1DSCollectorUrl",
+							"value": "https://mobile.events.data.microsoft.com/OneCollector/1.0/"
+						},
+						{
+							"key": "X-AriaCollectorURL",
+							"value": "https://browser.pipe.aria.microsoft.com/Collector/3.0/"
+						},
+						{
+							"key": "SPRequestGuid",
+							"value": "d5e8e0a0-a0cd-4000-53f5-02ae908b322c"
+						},
+						{
+							"key": "request-id",
+							"value": "d5e8e0a0-a0cd-4000-53f5-02ae908b322c"
+						},
+						{
+							"key": "MS-CV",
+							"value": "oODo1c2gAEBT9QKukIsyLA.0"
+						},
+						{
+							"key": "Strict-Transport-Security",
+							"value": "max-age=31536000"
+						},
+						{
+							"key": "X-FRAME-OPTIONS",
+							"value": "SAMEORIGIN"
+						},
+						{
+							"key": "Content-Security-Policy",
+							"value": "frame-ancestors 'self' teams.microsoft.com *.teams.microsoft.com *.skype.com *.teams.microsoft.us local.teams.office.com *.powerapps.com *.yammer.com *.officeapps.live.com *.office.com *.microsoft365.com *.stream.azure-test.net *.microsoftstream.com *.dynamics.com *.microsoft.com onedrive.live.com *.onedrive.live.com securebroker.sharepointonline.com;"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "ASP.NET"
+						},
+						{
+							"key": "MicrosoftSharePointTeamServices",
+							"value": "16.0.0.24120"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "X-MS-InvokeApp",
+							"value": "1; RequireReadOnly"
+						},
+						{
+							"key": "X-Cache",
+							"value": "CONFIG_NOCACHE"
+						},
+						{
+							"key": "X-MSEdge-Ref",
+							"value": "Ref A: 953CEAC248C240BCA324481C306ACDC0 Ref B: CH1EDGE1716 Ref C: 2023-10-04T20:28:18Z"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 04 Oct 2023 20:28:18 GMT"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"odata.metadata\": \"https://v7ldn.sharepoint.com/sites/Cashops/_api/$metadata#SP.ApiData.Folders1/@Element\",\n    \"odata.type\": \"SP.Folder\",\n    \"odata.id\": \"https://v7ldn.sharepoint.com/sites/Cashops/_api/Web/GetFolderByServerRelativePath(decodedurl='/sites/Cashops/Shared Documents/New Document set')\",\n    \"odata.editLink\": \"Web/GetFolderByServerRelativePath(decodedurl='/sites/Cashops/Shared%20Documents/New%20Document%20set')\",\n    \"Exists\": true,\n    \"ExistsAllowThrowForPolicyFailures\": true,\n    \"IsWOPIEnabled\": false,\n    \"ItemCount\": 0,\n    \"Name\": \"New Document set\",\n    \"ProgID\": \"Sharepoint.DocumentSet\",\n    \"ServerRelativeUrl\": \"/sites/Cashops/Shared Documents/New Document set\",\n    \"TimeCreated\": \"2023-10-04T14:11:15Z\",\n    \"TimeLastModified\": \"2023-10-04T14:11:15Z\",\n    \"UniqueId\": \"efa0b652-cf10-4a76-8fca-e45aed475e74\",\n    \"WelcomePage\": \"\"\n}"
+				},
+				{
+					"name": "Get folder verbose",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json;odata=verbose",
+								"type": "text"
+							},
+							{
+								"key": "Content-Length",
+								"value": "4",
+								"type": "text",
+								"disabled": true
+							},
+							{
+								"key": "X-RequestDigest",
+								"value": "0x463521BD311D3FFF22E1D0290275621A690AFB113450067015B8D9690C6CF51D9881A8AC4A4D1C22602F105661678BFEA00E51307F8F54CDAF1096E000EEB056",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "https://v7ldn.sharepoint.com/sites/Cashops/_api/web/GetFolderByServerRelativeUrl('/sites/Cashops/Shared Documents')/Folders('New Document set')",
+							"protocol": "https",
+							"host": [
+								"v7ldn",
+								"sharepoint",
+								"com"
+							],
+							"path": [
+								"sites",
+								"Cashops",
+								"_api",
+								"web",
+								"GetFolderByServerRelativeUrl('",
+								"sites",
+								"Cashops",
+								"Shared Documents')",
+								"Folders('New Document set')"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Cache-Control",
+							"value": "private, max-age=0"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json;odata=verbose;charset=utf-8"
+						},
+						{
+							"key": "Content-Encoding",
+							"value": "gzip"
+						},
+						{
+							"key": "Expires",
+							"value": "Tue, 19 Sep 2023 20:31:07 GMT"
+						},
+						{
+							"key": "Last-Modified",
+							"value": "Wed, 04 Oct 2023 20:31:07 GMT"
+						},
+						{
+							"key": "Vary",
+							"value": "Origin,Accept-Encoding"
+						},
+						{
+							"key": "P3P",
+							"value": "CP=\"ALL IND DSP COR ADM CONo CUR CUSo IVAo IVDo PSA PSD TAI TELo OUR SAMo CNT COM INT NAV ONL PHY PRE PUR UNI\""
+						},
+						{
+							"key": "X-NetworkStatistics",
+							"value": "0,525568,0,0,2051388,0,525568"
+						},
+						{
+							"key": "X-SharePointHealthScore",
+							"value": "0"
+						},
+						{
+							"key": "X-SP-SERVERSTATE",
+							"value": "ReadOnly=0"
+						},
+						{
+							"key": "DATASERVICEVERSION",
+							"value": "3.0"
+						},
+						{
+							"key": "SPClientServiceRequestDuration",
+							"value": "15"
+						},
+						{
+							"key": "SPRequestDuration",
+							"value": "16"
+						},
+						{
+							"key": "X-AspNet-Version",
+							"value": "4.0.30319"
+						},
+						{
+							"key": "X-DataBoundary",
+							"value": "NONE"
+						},
+						{
+							"key": "X-1DSCollectorUrl",
+							"value": "https://mobile.events.data.microsoft.com/OneCollector/1.0/"
+						},
+						{
+							"key": "X-AriaCollectorURL",
+							"value": "https://browser.pipe.aria.microsoft.com/Collector/3.0/"
+						},
+						{
+							"key": "SPRequestGuid",
+							"value": "ffe8e0a0-301b-4000-48c9-c8e5eb8aaa03"
+						},
+						{
+							"key": "request-id",
+							"value": "ffe8e0a0-301b-4000-48c9-c8e5eb8aaa03"
+						},
+						{
+							"key": "MS-CV",
+							"value": "oODo/xswAEBIycjl64qqAw.0"
+						},
+						{
+							"key": "Strict-Transport-Security",
+							"value": "max-age=31536000"
+						},
+						{
+							"key": "X-FRAME-OPTIONS",
+							"value": "SAMEORIGIN"
+						},
+						{
+							"key": "Content-Security-Policy",
+							"value": "frame-ancestors 'self' teams.microsoft.com *.teams.microsoft.com *.skype.com *.teams.microsoft.us local.teams.office.com *.powerapps.com *.yammer.com *.officeapps.live.com *.office.com *.microsoft365.com *.stream.azure-test.net *.microsoftstream.com *.dynamics.com *.microsoft.com onedrive.live.com *.onedrive.live.com securebroker.sharepointonline.com;"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "ASP.NET"
+						},
+						{
+							"key": "MicrosoftSharePointTeamServices",
+							"value": "16.0.0.24120"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "X-MS-InvokeApp",
+							"value": "1; RequireReadOnly"
+						},
+						{
+							"key": "X-Cache",
+							"value": "CONFIG_NOCACHE"
+						},
+						{
+							"key": "X-MSEdge-Ref",
+							"value": "Ref A: 3256D5F8FF8846E5A25A330E9412E432 Ref B: CH1EDGE1021 Ref C: 2023-10-04T20:31:07Z"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 04 Oct 2023 20:31:07 GMT"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"d\": {\n        \"__metadata\": {\n            \"id\": \"https://v7ldn.sharepoint.com/sites/Cashops/_api/Web/GetFolderByServerRelativePath(decodedurl='/sites/Cashops/Shared Documents/New Document set')\",\n            \"uri\": \"https://v7ldn.sharepoint.com/sites/Cashops/_api/Web/GetFolderByServerRelativePath(decodedurl='/sites/Cashops/Shared%20Documents/New%20Document%20set')\",\n            \"type\": \"SP.Folder\"\n        },\n        \"Files\": {\n            \"__deferred\": {\n                \"uri\": \"https://v7ldn.sharepoint.com/sites/Cashops/_api/Web/GetFolderByServerRelativePath(decodedurl='/sites/Cashops/Shared%20Documents/New%20Document%20set')/Files\"\n            }\n        },\n        \"ListItemAllFields\": {\n            \"__deferred\": {\n                \"uri\": \"https://v7ldn.sharepoint.com/sites/Cashops/_api/Web/GetFolderByServerRelativePath(decodedurl='/sites/Cashops/Shared%20Documents/New%20Document%20set')/ListItemAllFields\"\n            }\n        },\n        \"ParentFolder\": {\n            \"__deferred\": {\n                \"uri\": \"https://v7ldn.sharepoint.com/sites/Cashops/_api/Web/GetFolderByServerRelativePath(decodedurl='/sites/Cashops/Shared%20Documents/New%20Document%20set')/ParentFolder\"\n            }\n        },\n        \"Properties\": {\n            \"__deferred\": {\n                \"uri\": \"https://v7ldn.sharepoint.com/sites/Cashops/_api/Web/GetFolderByServerRelativePath(decodedurl='/sites/Cashops/Shared%20Documents/New%20Document%20set')/Properties\"\n            }\n        },\n        \"StorageMetrics\": {\n            \"__deferred\": {\n                \"uri\": \"https://v7ldn.sharepoint.com/sites/Cashops/_api/Web/GetFolderByServerRelativePath(decodedurl='/sites/Cashops/Shared%20Documents/New%20Document%20set')/StorageMetrics\"\n            }\n        },\n        \"Folders\": {\n            \"__deferred\": {\n                \"uri\": \"https://v7ldn.sharepoint.com/sites/Cashops/_api/Web/GetFolderByServerRelativePath(decodedurl='/sites/Cashops/Shared%20Documents/New%20Document%20set')/Folders\"\n            }\n        },\n        \"Exists\": true,\n        \"ExistsAllowThrowForPolicyFailures\": true,\n        \"IsWOPIEnabled\": false,\n        \"ItemCount\": 0,\n        \"Name\": \"New Document set\",\n        \"ProgID\": \"Sharepoint.DocumentSet\",\n        \"ServerRelativeUrl\": \"/sites/Cashops/Shared Documents/New Document set\",\n        \"TimeCreated\": \"2023-10-04T14:11:15Z\",\n        \"TimeLastModified\": \"2023-10-04T14:11:15Z\",\n        \"UniqueId\": \"efa0b652-cf10-4a76-8fca-e45aed475e74\",\n        \"WelcomePage\": \"\"\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "List Item all fields",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6ImxITEl1NG1vS3F6UGNva3dsZkNSUEh5amw1ZyIsImtpZCI6ImxITEl1NG1vS3F6UGNva3dsZkNSUEh5amw1ZyJ9.eyJhdWQiOiJodHRwczovL3RoZWNsb3VkaWR0LnNoYXJlcG9pbnQudXMiLCJpc3MiOiJodHRwczovL3N0cy53aW5kb3dzLm5ldC9kNzRhZDEwNy1lMGEzLTQ1ZmYtYWE5Yy0yODZmNzczMjZhNzAvIiwiaWF0IjoxNzAwMjUwNzUzLCJuYmYiOjE3MDAyNTA3NTMsImV4cCI6MTcwMDI1NDY1MywiYWlvIjoiNDJKZ1lMRDVkTFJ4NzFIcnZkTlpWSFl2MnJWc0FRQT0iLCJhcHBfZGlzcGxheW5hbWUiOiJHRElULU11bGVTb2Z0LUJFRVAiLCJhcHBpZCI6IjVmMjc2NDVmLWYwODMtNGFiYi1iYWU2LWM0YjhkYzdkZGY0NCIsImFwcGlkYWNyIjoiMiIsImlkcCI6Imh0dHBzOi8vc3RzLndpbmRvd3MubmV0L2Q3NGFkMTA3LWUwYTMtNDVmZi1hYTljLTI4NmY3NzMyNmE3MC8iLCJpZHR5cCI6ImFwcCIsIm9pZCI6ImQ0ZTYzN2RhLTk3YTEtNDc2MC1hNTA3LWMxNDY0MThhOTRiNSIsInJoIjoiMC5Dd01BQjlGSzE2UGdfMFdxbkNodmR6SnFjQU1BQUFBQUFQRVB6Z0FBQUFBQUFBQURBQUEuIiwicm9sZXMiOlsiU2l0ZXMuTWFuYWdlLkFsbCIsIlNpdGVzLlJlYWRXcml0ZS5BbGwiLCJTaXRlcy5GdWxsQ29udHJvbC5BbGwiXSwic2lkIjoiNjQxNTVhNjQtMGQ2Yi00NDNjLWEzMzQtZDQ1MDljZTBhMjMzIiwic3ViIjoiZDRlNjM3ZGEtOTdhMS00NzYwLWE1MDctYzE0NjQxOGE5NGI1IiwidGlkIjoiZDc0YWQxMDctZTBhMy00NWZmLWFhOWMtMjg2Zjc3MzI2YTcwIiwidXRpIjoic1ROejZsaU1hVWl3emxNdU9YUVlBQSIsInZlciI6IjEuMCJ9.NWmm9vkEm-czZUPT1IQwizQ_fu-XGS9730ysVhqwya4skcV1YJ544Ve9stmYD4rHv5IK33zs8Cj9vhFqf8MY1fMMuCG0yjGytMQx9mTzqs7WenspbBTAeRBjrvQrfefBL6wu_VYwaZAQFZFGa88UjYGqpKUCgCqXMkdZIHK158iz5bXVq_59T_J_3-BZYetkNAM2QNfzGVISAVBuseBR6gm1uHNWMaBr0Znepdoc19EbYt6dhH2_p6Nf2vzULzOol_VcnMdNkgwm58oBQFoX1h-2yjxjvfpp9SBBQOHda25S6LdQha6m8VtpKDINe7jMTfGPGawWaOlv9yN2c7noSw",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json;odata=verbose",
+						"type": "text"
+					},
+					{
+						"key": "Content-Length",
+						"value": "4",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "X-RequestDigest",
+						"value": "0x463521BD311D3FFF22E1D0290275621A690AFB113450067015B8D9690C6CF51D9881A8AC4A4D1C22602F105661678BFEA00E51307F8F54CDAF1096E000EEB056",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"url": {
+					"raw": "https://{{host}}/teams/CashOps/_api/Web/GetFolderByServerRelativePath(decodedurl='/teams/CashOps/Shared Documents/M29460-JEM')/ListItemAllFields",
+					"protocol": "https",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"teams",
+						"CashOps",
+						"_api",
+						"Web",
+						"GetFolderByServerRelativePath(decodedurl='",
+						"teams",
+						"CashOps",
+						"Shared Documents",
+						"M29460-JEM')",
+						"ListItemAllFields"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Chris-Example",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6ImxITEl1NG1vS3F6UGNva3dsZkNSUEh5amw1ZyIsImtpZCI6ImxITEl1NG1vS3F6UGNva3dsZkNSUEh5amw1ZyJ9.eyJhdWQiOiJodHRwczovL3RoZWNsb3VkaWR0LnNoYXJlcG9pbnQudXMiLCJpc3MiOiJodHRwczovL3N0cy53aW5kb3dzLm5ldC9kNzRhZDEwNy1lMGEzLTQ1ZmYtYWE5Yy0yODZmNzczMjZhNzAvIiwiaWF0IjoxNzAwMDc3Mjc5LCJuYmYiOjE3MDAwNzcyNzksImV4cCI6MTcwMDA4MTE3OSwiYWlvIjoiNDJKZ1lGQjdGcWM1SWJUWjBFd3ZxVFA5bkw0Y0FBPT0iLCJhcHBfZGlzcGxheW5hbWUiOiJHRElULU11bGVTb2Z0LUJFRVAiLCJhcHBpZCI6IjVmMjc2NDVmLWYwODMtNGFiYi1iYWU2LWM0YjhkYzdkZGY0NCIsImFwcGlkYWNyIjoiMiIsImlkcCI6Imh0dHBzOi8vc3RzLndpbmRvd3MubmV0L2Q3NGFkMTA3LWUwYTMtNDVmZi1hYTljLTI4NmY3NzMyNmE3MC8iLCJpZHR5cCI6ImFwcCIsIm9pZCI6ImQ0ZTYzN2RhLTk3YTEtNDc2MC1hNTA3LWMxNDY0MThhOTRiNSIsInJoIjoiMC5Dd01BQjlGSzE2UGdfMFdxbkNodmR6SnFjQU1BQUFBQUFQRVB6Z0FBQUFBQUFBQURBQUEuIiwicm9sZXMiOlsiU2l0ZXMuTWFuYWdlLkFsbCIsIlNpdGVzLlJlYWRXcml0ZS5BbGwiLCJTaXRlcy5GdWxsQ29udHJvbC5BbGwiXSwic2lkIjoiYzM0MDVhNmQtNjJmMy00Mzg0LWIwYWMtMzRhMjYzMmIwYTEyIiwic3ViIjoiZDRlNjM3ZGEtOTdhMS00NzYwLWE1MDctYzE0NjQxOGE5NGI1IiwidGlkIjoiZDc0YWQxMDctZTBhMy00NWZmLWFhOWMtMjg2Zjc3MzI2YTcwIiwidXRpIjoiYmVsX2M3Q2I4RUNwNDROdWNWQUJBQSIsInZlciI6IjEuMCJ9.NdQHvxBlhTEJ5V-GvcULENpda2KHpu7OslecALHK1q4RZQ7sfJ-i1cN9yUFYk0z8FFxYbKj1RflZ6tFiZeWb9PlDT64-4skAA7aGVPpN24UVKcvFxtsDAMfSuWc1rl5bOpsvLfIl5B3qQNl2PQxYhHLMZzbxwYcoWKyQCGj9TUb3p9jrsKcaapMFFLeUpdNX1ySukev-t4x7jOym6v5CYXInrB3TVQh7CuVzW_16qp1lFVaok9WILT-lK_dtQraoLiI9SLhI3zWzQekqMljie8zArIzG9YlEOhw91lX4n6R_nzt8Ghtg97MqicUPZ2rWx9yQe65ohv8aWKJbq8XOUg",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json;odata=verbose",
+						"type": "text"
+					},
+					{
+						"key": "Content-Length",
+						"value": "4",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "X-RequestDigest",
+						"value": "0x463521BD311D3FFF22E1D0290275621A690AFB113450067015B8D9690C6CF51D9881A8AC4A4D1C22602F105661678BFEA00E51307F8F54CDAF1096E000EEB056",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"url": {
+					"raw": "https://thecloudidt.sharepoint.us/sites/Cashops/_api/web/lists/getbytitle(%27Documents%27)/Items?OR=Teams-HL&CT=1700077344562&clickparams=eyJBcHBOYW1lIjoiVGVhbXMtRGVza3RvcCIsIkFwcFZlcnNpb24iOiIyNy8yMzA5MjkxMTIwOCIsIkhhc0ZlZGVyYXRlZFVzZXIiOmZhbHNlfQ%3D%3D",
+					"protocol": "https",
+					"host": [
+						"thecloudidt",
+						"sharepoint",
+						"us"
+					],
+					"path": [
+						"sites",
+						"Cashops",
+						"_api",
+						"web",
+						"lists",
+						"getbytitle(%27Documents%27)",
+						"Items"
+					],
+					"query": [
+						{
+							"key": "OR",
+							"value": "Teams-HL"
+						},
+						{
+							"key": "CT",
+							"value": "1700077344562"
+						},
+						{
+							"key": "clickparams",
+							"value": "eyJBcHBOYW1lIjoiVGVhbXMtRGVza3RvcCIsIkFwcFZlcnNpb24iOiIyNy8yMzA5MjkxMTIwOCIsIkhhc0ZlZGVyYXRlZFVzZXIiOmZhbHNlfQ%3D%3D"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create folder-GD",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6ImxITEl1NG1vS3F6UGNva3dsZkNSUEh5amw1ZyIsImtpZCI6ImxITEl1NG1vS3F6UGNva3dsZkNSUEh5amw1ZyJ9.eyJhdWQiOiJodHRwczovL3RoZWNsb3VkaWR0LnNoYXJlcG9pbnQudXMiLCJpc3MiOiJodHRwczovL3N0cy53aW5kb3dzLm5ldC9kNzRhZDEwNy1lMGEzLTQ1ZmYtYWE5Yy0yODZmNzczMjZhNzAvIiwiaWF0IjoxNzAwMDczMTg4LCJuYmYiOjE3MDAwNzMxODgsImV4cCI6MTcwMDA3NzA4OCwiYWlvIjoiNDJKZ1lFZ1BlSGZZWVdQS21haC9VK3pzTDNOcEFBQT0iLCJhcHBfZGlzcGxheW5hbWUiOiJHRElULU11bGVTb2Z0LUJFRVAiLCJhcHBpZCI6IjVmMjc2NDVmLWYwODMtNGFiYi1iYWU2LWM0YjhkYzdkZGY0NCIsImFwcGlkYWNyIjoiMiIsImlkcCI6Imh0dHBzOi8vc3RzLndpbmRvd3MubmV0L2Q3NGFkMTA3LWUwYTMtNDVmZi1hYTljLTI4NmY3NzMyNmE3MC8iLCJpZHR5cCI6ImFwcCIsIm9pZCI6ImQ0ZTYzN2RhLTk3YTEtNDc2MC1hNTA3LWMxNDY0MThhOTRiNSIsInJoIjoiMC5Dd01BQjlGSzE2UGdfMFdxbkNodmR6SnFjQU1BQUFBQUFQRVB6Z0FBQUFBQUFBQURBQUEuIiwicm9sZXMiOlsiU2l0ZXMuTWFuYWdlLkFsbCIsIlNpdGVzLlJlYWRXcml0ZS5BbGwiLCJTaXRlcy5GdWxsQ29udHJvbC5BbGwiXSwic2lkIjoiOThmYmJlZTctNGZhZi00ZTkwLWJjMWItNTcxMDM3NDIxM2YyIiwic3ViIjoiZDRlNjM3ZGEtOTdhMS00NzYwLWE1MDctYzE0NjQxOGE5NGI1IiwidGlkIjoiZDc0YWQxMDctZTBhMy00NWZmLWFhOWMtMjg2Zjc3MzI2YTcwIiwidXRpIjoib1dWRlhpVGJWRVdyMEpibWZra3FBQSIsInZlciI6IjEuMCJ9.eCDo9N3EcGS7EfW2FkFumXGQsIE9sWrmRGSigsQZZ1Svh9LXjfF9fYq4I4VRxWeFdWUmd0lK4wcsG-RiUmr-iyYq4axhoLyWNrx1Gyiq8Raw8R__0tRc-Fq2md0aU2fAb_aHutPJUGpYYMjpDsPKLrSdTiQDYCHm8vAy5D0rwDiNLoZUo2Zvr-S44VnUzMtgfbiC01fwIG1-JlgzAPaMu1nhlokuv98CbGDaTdEL1JLbPe_DvN7gpdTNJFNTCge3F7XT2a8zDD_QE-Yal0BwHX8zrdKlESgZHpzcoZCbNEXwpXo180a96kWGf5N-6siqFuLFqfi8lxaxX6NPig2SiA",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "X-RequestDigest",
+						"value": "0x463521BD311D3FFF22E1D0290275621A690AFB113450067015B8D9690C6CF51D9881A8AC4A4D1C22602F105661678BFEA00E51307F8F54CDAF1096E000EEB056",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"ServerRelativeUrl\": \"MOCK_FOLDER_F23\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://{{host}}/sites/Cashops/_api/web/GetFolderByServerRelativeUrl('/sites/Cashops/Shared Documents')/Folders",
+					"protocol": "https",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"sites",
+						"Cashops",
+						"_api",
+						"web",
+						"GetFolderByServerRelativeUrl('",
+						"sites",
+						"Cashops",
+						"Shared Documents')",
+						"Folders"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PDI sharepoint auth with certficate-PDI",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "client_id",
+							"value": "379901a5-1c7c-45cd-a0a3-ad08a9bbe399",
+							"type": "text"
+						},
+						{
+							"key": "scope",
+							"value": "https://v7ldn.sharepoint.com/.default",
+							"type": "text"
+						},
+						{
+							"key": "response_type",
+							"value": "code",
+							"type": "text"
+						},
+						{
+							"key": "grant_type",
+							"value": "client_credentials",
+							"type": "text"
+						},
+						{
+							"key": "client_assertion_type",
+							"value": "urn:ietf:params:oauth:client-assertion-type:jwt-bearer",
+							"type": "text"
+						},
+						{
+							"key": "client_assertion",
+							"value": "eyJ4NXQiOiJyWTNUbVhhUDRSMmdZUTZBSFlHQ2Nib1lKb2c9IiwidHlwIjoiSldUIiwiYWxnIjoiUlMyNTYifQ.eyJhdWQiOiJodHRwczovL2xvZ2luLm1pY3Jvc29mdG9ubGluZS5jb20vZmE2OGY3YzAtZDNmNS00OTlkLTg0YjItZGZiZjAxODc4ODYwL29hdXRoMi92Mi4wL3Rva2VuIiwic3ViIjoiMzc5OTAxYTUtMWM3Yy00NWNkLWEwYTMtYWQwOGE5YmJlMzk5IiwibmJmIjoxNjk5NDY1NDA1LCJpc3MiOiIzNzk5MDFhNS0xYzdjLTQ1Y2QtYTBhMy1hZDA4YTliYmUzOTkiLCJleHAiOjE2OTk1NTE4NjUsImp0aSI6Inp6TlpDZXJ5RU81S05ZSllRUlVFcEJONXd4UElKOHJVWkVUNmFoa1ZhaUU9In0.QQqYS0JhaDS13NHVzdtjHfQVS7acRn98QL2ZSR_t_TWwJEOSWSSjsLLApl2l7sGitx4FVnWMW3ScCo83kUvOILiUBrstn88xXTXujAv3AlRiiTUBLemdsfib0t_wcZb26vbz8owYHKfopG_1pjLuQa3FN_lzjQXUMbxRK8pTSkhJ7iZh9Dg-8JC-wUK3ueUk5SPm8Y260Q9xE1hnRdbl76BzX7cRhdzFXeCfKZ_6vyctXPiavMjQlX9eCfOAqqlmlVIIzIotoX4tXFz9A8LQua5hwT12n6YPtgeJ1CVmCSV3W8-U6p_7H8dOtOjV-lgZWgFHSbw0ZKGnhD6QdMLypg",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://login.microsoftonline.com/fa68f7c0-d3f5-499d-84b2-dfbf01878860/oauth2/v2.0/token",
+					"protocol": "https",
+					"host": [
+						"login",
+						"microsoftonline",
+						"com"
+					],
+					"path": [
+						"fa68f7c0-d3f5-499d-84b2-dfbf01878860",
+						"oauth2",
+						"v2.0",
+						"token"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "retrieve x request digest value-GD",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6ImxITEl1NG1vS3F6UGNva3dsZkNSUEh5amw1ZyIsImtpZCI6ImxITEl1NG1vS3F6UGNva3dsZkNSUEh5amw1ZyJ9.eyJhdWQiOiJodHRwczovL3RoZWNsb3VkaWR0LnNoYXJlcG9pbnQudXMiLCJpc3MiOiJodHRwczovL3N0cy53aW5kb3dzLm5ldC9kNzRhZDEwNy1lMGEzLTQ1ZmYtYWE5Yy0yODZmNzczMjZhNzAvIiwiaWF0IjoxNjk5MzgyODc1LCJuYmYiOjE2OTkzODI4NzUsImV4cCI6MTY5OTM4Njc3NSwiYWlvIjoiNDJKZ1lFaithMXYva0MrcHc3SnlBclAzL3VYU0FBPT0iLCJhcHBfZGlzcGxheW5hbWUiOiJHRElULU11bGVTb2Z0LUJFRVAiLCJhcHBpZCI6IjVmMjc2NDVmLWYwODMtNGFiYi1iYWU2LWM0YjhkYzdkZGY0NCIsImFwcGlkYWNyIjoiMiIsImlkcCI6Imh0dHBzOi8vc3RzLndpbmRvd3MubmV0L2Q3NGFkMTA3LWUwYTMtNDVmZi1hYTljLTI4NmY3NzMyNmE3MC8iLCJpZHR5cCI6ImFwcCIsIm9pZCI6ImQ0ZTYzN2RhLTk3YTEtNDc2MC1hNTA3LWMxNDY0MThhOTRiNSIsInJoIjoiMC5Dd01BQjlGSzE2UGdfMFdxbkNodmR6SnFjQU1BQUFBQUFQRVB6Z0FBQUFBQUFBQURBQUEuIiwicm9sZXMiOlsiU2l0ZXMuRnVsbENvbnRyb2wuQWxsIl0sInNpZCI6IjAyYWMwZjkzLTRhZjUtNDAxMS1hNzliLTI4ZjE3YzI2YmU4OSIsInN1YiI6ImQ0ZTYzN2RhLTk3YTEtNDc2MC1hNTA3LWMxNDY0MThhOTRiNSIsInRpZCI6ImQ3NGFkMTA3LWUwYTMtNDVmZi1hYTljLTI4NmY3NzMyNmE3MCIsInV0aSI6IjJIT3Bzc2xaWTBHbWtIWWk5ZFEyQUEiLCJ2ZXIiOiIxLjAifQ.VSKV9HeH0To9EvT0iS2xbm4rMeI2MdbLui2qIVG7nupwfpgBl1jZ3NhUnXgnNi1w1TrqpLSGLWh0FAkfJsj1MXnWpMY1K2f_deSrGvwK7rDT4cYcQ9e9uYA-2gnhEtZ6rZqzPPKzpBfL688zfix_xAdWrnIx6DLCQ87ngRSZihhB4T-f8BLW5rauibs9DLmeT8xZPnp1Tk24wK-xxj2s99ihI5NHdGqbxn0sr1lSeVFXanqZ-a1AROxEJqwNkrwU9_l8joNnyf7CpxxHKH0We-nIyhqAKXzgXykHruNEPyRI0TceiHmmENxB5QhMrZjTQPl-anwAEoPjvKpqyRHc-",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json;odata=verbose",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://{{host}}/{{SiteURL}}/_api/contextinfo",
+					"protocol": "https",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"{{SiteURL}}",
+						"_api",
+						"contextinfo"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "retrieve metadata",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ii1LSTNROW5OUjdiUm9meG1lWm9YcWJIWkdldyIsImtpZCI6Ii1LSTNROW5OUjdiUm9meG1lWm9YcWJIWkdldyJ9.eyJhdWQiOiJodHRwczovL3Y3bGRuLnNoYXJlcG9pbnQuY29tIiwiaXNzIjoiaHR0cHM6Ly9zdHMud2luZG93cy5uZXQvZmE2OGY3YzAtZDNmNS00OTlkLTg0YjItZGZiZjAxODc4ODYwLyIsImlhdCI6MTY5NjQ2MjI4NiwibmJmIjoxNjk2NDYyMjg2LCJleHAiOjE2OTY0NjYxODYsImFpbyI6IkUyRmdZSkE4MHhwNGk4RmlUdFZXSzhsdDg2OC9CQUE9IiwiYXBwX2Rpc3BsYXluYW1lIjoic2hhcmVwb2ludCBjb2RlIiwiYXBwaWQiOiIzNzk5MDFhNS0xYzdjLTQ1Y2QtYTBhMy1hZDA4YTliYmUzOTkiLCJhcHBpZGFjciI6IjIiLCJpZHAiOiJodHRwczovL3N0cy53aW5kb3dzLm5ldC9mYTY4ZjdjMC1kM2Y1LTQ5OWQtODRiMi1kZmJmMDE4Nzg4NjAvIiwiaWR0eXAiOiJhcHAiLCJvaWQiOiI3ODQyMmRlYy05ODlkLTRkMTAtYjk0Ni04MjZiMWQ1Mjg0N2IiLCJyaCI6IjAuQVZBQXdQZG8tdlhUblVtRXN0LV9BWWVJWUFNQUFBQUFBUEVQemdBQUFBQUFBQUJfQUFBLiIsInJvbGVzIjpbIlNpdGVzLlNlbGVjdGVkIiwiU2l0ZXMuTWFuYWdlLkFsbCIsIlNpdGVzLlJlYWQuQWxsIiwiU2l0ZXMuUmVhZFdyaXRlLkFsbCIsIlNpdGVzLkZ1bGxDb250cm9sLkFsbCJdLCJzaWQiOiJiMDE0YzUwMC1lNTAxLTRmMGQtOThjNy0zOTIyZGY4YWE2MTEiLCJzdWIiOiI3ODQyMmRlYy05ODlkLTRkMTAtYjk0Ni04MjZiMWQ1Mjg0N2IiLCJ0aWQiOiJmYTY4ZjdjMC1kM2Y1LTQ5OWQtODRiMi1kZmJmMDE4Nzg4NjAiLCJ1dGkiOiJYOGFmVnNIeE8weV9ldjJlS0Myb0FBIiwidmVyIjoiMS4wIn0.PUo9ExxnromNdrUSAJ3pNmqVI1lj5I1nrIyCE2CqF39KxoCAsnltLgb9FclKxHEOpe4aHB0CdcXiB748eWf7opmYImBokFPv-u_7f_MAW_MwL2W2_4ILz0KWNH5Gv_uScnWbBnClW4NfCAZK9kSGNrC2BzApTRD4-xbg0H0pdIe35h1m8fs_4QPD0E7uzptPLoG3t33Z9-R1h8UmAKKnBBLYx4rC5jpNkpjEmysEYjS2rLX5k1_wXsfP0OLsM0wdPkJC6EuI-ohgFKQ2k_In4TNs1KB_63OsxoIuUQEGBbcGc_OQtPJTlRqaA4NbY7LVP2j53Nzb9j3rYJ2cdcrxmg",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json;odata=verbose",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://{{host}}/sites/Cashops/_api/web/GetFolderByServerRelativeUrl('/sites/Cashops/Shared Documents/Bypostman')/ListItemAllFields",
+					"protocol": "https",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"sites",
+						"Cashops",
+						"_api",
+						"web",
+						"GetFolderByServerRelativeUrl('",
+						"sites",
+						"Cashops",
+						"Shared Documents",
+						"Bypostman')",
+						"ListItemAllFields"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "retrieve metadata",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json;odata=verbose",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://v7ldn.sharepoint.com/sites/Cashops/_api/web/GetFolderByServerRelativeUrl('/sites/Cashops/Shared Documents/New Document set')/ListItemAllFields",
+							"protocol": "https",
+							"host": [
+								"v7ldn",
+								"sharepoint",
+								"com"
+							],
+							"path": [
+								"sites",
+								"Cashops",
+								"_api",
+								"web",
+								"GetFolderByServerRelativeUrl('",
+								"sites",
+								"Cashops",
+								"Shared Documents",
+								"New Document set')",
+								"ListItemAllFields"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Cache-Control",
+							"value": "private, max-age=0"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json;odata=verbose;charset=utf-8"
+						},
+						{
+							"key": "Content-Encoding",
+							"value": "gzip"
+						},
+						{
+							"key": "Expires",
+							"value": "Tue, 19 Sep 2023 16:51:47 GMT"
+						},
+						{
+							"key": "Last-Modified",
+							"value": "Wed, 04 Oct 2023 16:51:47 GMT"
+						},
+						{
+							"key": "ETag",
+							"value": "\"efa0b652-cf10-4a76-8fca-e45aed475e74,2\""
+						},
+						{
+							"key": "Vary",
+							"value": "Origin,Accept-Encoding"
+						},
+						{
+							"key": "P3P",
+							"value": "CP=\"ALL IND DSP COR ADM CONo CUR CUSo IVAo IVDo PSA PSD TAI TELo OUR SAMo CNT COM INT NAV ONL PHY PRE PUR UNI\""
+						},
+						{
+							"key": "X-NetworkStatistics",
+							"value": "0,8409600,95,558,9893438,4309392,4309392"
+						},
+						{
+							"key": "X-SharePointHealthScore",
+							"value": "2"
+						},
+						{
+							"key": "X-SP-SERVERSTATE",
+							"value": "ReadOnly=0"
+						},
+						{
+							"key": "DATASERVICEVERSION",
+							"value": "3.0"
+						},
+						{
+							"key": "SPClientServiceRequestDuration",
+							"value": "50"
+						},
+						{
+							"key": "SPRequestDuration",
+							"value": "51"
+						},
+						{
+							"key": "X-AspNet-Version",
+							"value": "4.0.30319"
+						},
+						{
+							"key": "X-DataBoundary",
+							"value": "NONE"
+						},
+						{
+							"key": "X-1DSCollectorUrl",
+							"value": "https://mobile.events.data.microsoft.com/OneCollector/1.0/"
+						},
+						{
+							"key": "X-AriaCollectorURL",
+							"value": "https://browser.pipe.aria.microsoft.com/Collector/3.0/"
+						},
+						{
+							"key": "SPRequestGuid",
+							"value": "72dce0a0-7010-4000-53f5-0d9e016ac737"
+						},
+						{
+							"key": "request-id",
+							"value": "72dce0a0-7010-4000-53f5-0d9e016ac737"
+						},
+						{
+							"key": "MS-CV",
+							"value": "oODcchBwAEBT9Q2eAWrHNw.0"
+						},
+						{
+							"key": "Strict-Transport-Security",
+							"value": "max-age=31536000"
+						},
+						{
+							"key": "X-FRAME-OPTIONS",
+							"value": "SAMEORIGIN"
+						},
+						{
+							"key": "Content-Security-Policy",
+							"value": "frame-ancestors 'self' teams.microsoft.com *.teams.microsoft.com *.skype.com *.teams.microsoft.us local.teams.office.com *.powerapps.com *.yammer.com *.officeapps.live.com *.office.com *.microsoft365.com *.stream.azure-test.net *.microsoftstream.com *.dynamics.com *.microsoft.com onedrive.live.com *.onedrive.live.com securebroker.sharepointonline.com;"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "ASP.NET"
+						},
+						{
+							"key": "MicrosoftSharePointTeamServices",
+							"value": "16.0.0.24120"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "X-MS-InvokeApp",
+							"value": "1; RequireReadOnly"
+						},
+						{
+							"key": "X-Cache",
+							"value": "CONFIG_NOCACHE"
+						},
+						{
+							"key": "X-MSEdge-Ref",
+							"value": "Ref A: E21714481FBF4949A3DA1C803D72C44E Ref B: CH1EDGE2107 Ref C: 2023-10-04T16:51:47Z"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 04 Oct 2023 16:51:46 GMT"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"d\": {\n        \"__metadata\": {\n            \"id\": \"89743d1b-6ce4-4acd-a0b5-1490ea1da0a3\",\n            \"uri\": \"https://v7ldn.sharepoint.com/sites/Cashops/_api/Web/Lists(guid'aa97c75f-0ded-4004-886b-156874bb7513')/Items(43)\",\n            \"etag\": \"\\\"2\\\"\",\n            \"type\": \"SP.Data.Shared_x0020_DocumentsItem\"\n        },\n        \"FirstUniqueAncestorSecurableObject\": {\n            \"__deferred\": {\n                \"uri\": \"https://v7ldn.sharepoint.com/sites/Cashops/_api/Web/Lists(guid'aa97c75f-0ded-4004-886b-156874bb7513')/Items(43)/FirstUniqueAncestorSecurableObject\"\n            }\n        },\n        \"RoleAssignments\": {\n            \"__deferred\": {\n                \"uri\": \"https://v7ldn.sharepoint.com/sites/Cashops/_api/Web/Lists(guid'aa97c75f-0ded-4004-886b-156874bb7513')/Items(43)/RoleAssignments\"\n            }\n        },\n        \"AttachmentFiles\": {\n            \"__deferred\": {\n                \"uri\": \"https://v7ldn.sharepoint.com/sites/Cashops/_api/Web/Lists(guid'aa97c75f-0ded-4004-886b-156874bb7513')/Items(43)/AttachmentFiles\"\n            }\n        },\n        \"ContentType\": {\n            \"__deferred\": {\n                \"uri\": \"https://v7ldn.sharepoint.com/sites/Cashops/_api/Web/Lists(guid'aa97c75f-0ded-4004-886b-156874bb7513')/Items(43)/ContentType\"\n            }\n        },\n        \"GetDlpPolicyTip\": {\n            \"__deferred\": {\n                \"uri\": \"https://v7ldn.sharepoint.com/sites/Cashops/_api/Web/Lists(guid'aa97c75f-0ded-4004-886b-156874bb7513')/Items(43)/GetDlpPolicyTip\"\n            }\n        },\n        \"FieldValuesAsHtml\": {\n            \"__deferred\": {\n                \"uri\": \"https://v7ldn.sharepoint.com/sites/Cashops/_api/Web/Lists(guid'aa97c75f-0ded-4004-886b-156874bb7513')/Items(43)/FieldValuesAsHtml\"\n            }\n        },\n        \"FieldValuesAsText\": {\n            \"__deferred\": {\n                \"uri\": \"https://v7ldn.sharepoint.com/sites/Cashops/_api/Web/Lists(guid'aa97c75f-0ded-4004-886b-156874bb7513')/Items(43)/FieldValuesAsText\"\n            }\n        },\n        \"FieldValuesForEdit\": {\n            \"__deferred\": {\n                \"uri\": \"https://v7ldn.sharepoint.com/sites/Cashops/_api/Web/Lists(guid'aa97c75f-0ded-4004-886b-156874bb7513')/Items(43)/FieldValuesForEdit\"\n            }\n        },\n        \"File\": {\n            \"__deferred\": {\n                \"uri\": \"https://v7ldn.sharepoint.com/sites/Cashops/_api/Web/Lists(guid'aa97c75f-0ded-4004-886b-156874bb7513')/Items(43)/File\"\n            }\n        },\n        \"Folder\": {\n            \"__deferred\": {\n                \"uri\": \"https://v7ldn.sharepoint.com/sites/Cashops/_api/Web/Lists(guid'aa97c75f-0ded-4004-886b-156874bb7513')/Items(43)/Folder\"\n            }\n        },\n        \"LikedByInformation\": {\n            \"__deferred\": {\n                \"uri\": \"https://v7ldn.sharepoint.com/sites/Cashops/_api/Web/Lists(guid'aa97c75f-0ded-4004-886b-156874bb7513')/Items(43)/LikedByInformation\"\n            }\n        },\n        \"ParentList\": {\n            \"__deferred\": {\n                \"uri\": \"https://v7ldn.sharepoint.com/sites/Cashops/_api/Web/Lists(guid'aa97c75f-0ded-4004-886b-156874bb7513')/Items(43)/ParentList\"\n            }\n        },\n        \"Properties\": {\n            \"__deferred\": {\n                \"uri\": \"https://v7ldn.sharepoint.com/sites/Cashops/_api/Web/Lists(guid'aa97c75f-0ded-4004-886b-156874bb7513')/Items(43)/Properties\"\n            }\n        },\n        \"Versions\": {\n            \"__deferred\": {\n                \"uri\": \"https://v7ldn.sharepoint.com/sites/Cashops/_api/Web/Lists(guid'aa97c75f-0ded-4004-886b-156874bb7513')/Items(43)/Versions\"\n            }\n        },\n        \"FileSystemObjectType\": 1,\n        \"Id\": 43,\n        \"ServerRedirectedEmbedUri\": null,\n        \"ServerRedirectedEmbedUrl\": \"\",\n        \"ContentTypeId\": \"0x0120D52000A635FED83F284843B7CC338DB2A5F926\",\n        \"Modified\": \"2023-10-04T07:11:15\",\n        \"OData__ColorTag\": null,\n        \"ComplianceAssetId\": null,\n        \"Title\": \"New Document set\",\n        \"OData__Contributor\": null,\n        \"Holiday\": null,\n        \"DocumentSetDescription\": null,\n        \"Confirmation\": null,\n        \"ID\": 43,\n        \"Created\": \"2023-10-04T07:11:15\",\n        \"AuthorId\": 9,\n        \"EditorId\": 9,\n        \"OData__CopySource\": null,\n        \"CheckoutUserId\": null,\n        \"OData__UIVersionString\": \"2.0\",\n        \"GUID\": \"257049c4-5955-4188-be55-44a1951aa12e\"\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "DONT USE sharepoint client auth",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "client_id",
+							"value": "379901a5-1c7c-45cd-a0a3-ad08a9bbe399",
+							"type": "text"
+						},
+						{
+							"key": "scope",
+							"value": "https://v7ldn.sharepoint.com/.default",
+							"type": "text"
+						},
+						{
+							"key": "client_secret",
+							"value": "piU~eY7V.tN_9k1.ep09buf.GyxN6d8zG8",
+							"type": "text"
+						},
+						{
+							"key": "grant_type",
+							"value": "client_credentials",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://login.microsoftonline.us/d74ad107-e0a3-45ff-aa9c-286f77326a70/oauth2/v2.0/token",
+					"protocol": "https",
+					"host": [
+						"login",
+						"microsoftonline",
+						"us"
+					],
+					"path": [
+						"d74ad107-e0a3-45ff-aa9c-286f77326a70",
+						"oauth2",
+						"v2.0",
+						"token"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get  folder-PDI",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6IjlHbW55RlBraGMzaE91UjIybXZTdmduTG83WSIsImtpZCI6IjlHbW55RlBraGMzaE91UjIybXZTdmduTG83WSJ9.eyJhdWQiOiJodHRwczovL3Y3bGRuLnNoYXJlcG9pbnQuY29tIiwiaXNzIjoiaHR0cHM6Ly9zdHMud2luZG93cy5uZXQvZmE2OGY3YzAtZDNmNS00OTlkLTg0YjItZGZiZjAxODc4ODYwLyIsImlhdCI6MTY5OTQ2NTE4NiwibmJmIjoxNjk5NDY1MTg2LCJleHAiOjE2OTk0NjkwODYsImFpbyI6IkUyRmdZQkJ5MnZYU3NpVnZuK2drRTlFcERteXpBUT09IiwiYXBwX2Rpc3BsYXluYW1lIjoic2hhcmVwb2ludCBjb2RlIiwiYXBwaWQiOiIzNzk5MDFhNS0xYzdjLTQ1Y2QtYTBhMy1hZDA4YTliYmUzOTkiLCJhcHBpZGFjciI6IjIiLCJpZHAiOiJodHRwczovL3N0cy53aW5kb3dzLm5ldC9mYTY4ZjdjMC1kM2Y1LTQ5OWQtODRiMi1kZmJmMDE4Nzg4NjAvIiwiaWR0eXAiOiJhcHAiLCJvaWQiOiI3ODQyMmRlYy05ODlkLTRkMTAtYjk0Ni04MjZiMWQ1Mjg0N2IiLCJyaCI6IjAuQVZBQXdQZG8tdlhUblVtRXN0LV9BWWVJWUFNQUFBQUFBUEVQemdBQUFBQUFBQUJfQUFBLiIsInNpZCI6ImMzNTY0MGVhLTliZjctNDhkOC1iM2IwLTMwYzQ3YmVlYjQyMyIsInN1YiI6Ijc4NDIyZGVjLTk4OWQtNGQxMC1iOTQ2LTgyNmIxZDUyODQ3YiIsInRpZCI6ImZhNjhmN2MwLWQzZjUtNDk5ZC04NGIyLWRmYmYwMTg3ODg2MCIsInV0aSI6Ill0aWg4bEttLVVPNTI2Z1NfRUxPQUEiLCJ2ZXIiOiIxLjAifQ.kWvZ4BZaSuSvhCS5ndDgLIRsmmmufZCNiAJfnOiZH9e3lXC5QhEASHU4GX2bxAXolEd27XAd678RDGPoZS3FEZAHSYwNmSinqm9xUZUUKSCrG3eyF4B9Tzthh4RibL6q_u574Wei2pByjp3iVgFo0Mfv71VOK-ikEegpP_1ZtEfEsve4yHnD_Bkj4hMj8zNYMY3-QNZdDzUtoUaU2fBUpliSolspngAiJYXJoqnktb3sKdXT0Ts-XzblgULXLLwGK2WFi2VfM-ksZ0BjrDmkZk_hZBBZc7v4VdeaE_RXkd5Xvvd8wBtGFmOiCnqTgTCDtowkYshjMZbzUO1IS69mRg",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json;odata=verbose",
+						"type": "text"
+					},
+					{
+						"key": "Content-Length",
+						"value": "4",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "X-RequestDigest",
+						"value": "0x463521BD311D3FFF22E1D0290275621A690AFB113450067015B8D9690C6CF51D9881A8AC4A4D1C22602F105661678BFEA00E51307F8F54CDAF1096E000EEB056",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"url": {
+					"raw": "https://{{host}}/sites/CashOps/_api/web/GetFolderByServerRelativeUrl('/sites/Cashops/Shared Documents/MOCK_FOLDER_F1')",
+					"protocol": "https",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"sites",
+						"CashOps",
+						"_api",
+						"web",
+						"GetFolderByServerRelativeUrl('",
+						"sites",
+						"Cashops",
+						"Shared Documents",
+						"MOCK_FOLDER_F1')"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Get folder non verbose",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Length",
+								"value": "4",
+								"type": "text",
+								"disabled": true
+							},
+							{
+								"key": "X-RequestDigest",
+								"value": "0x463521BD311D3FFF22E1D0290275621A690AFB113450067015B8D9690C6CF51D9881A8AC4A4D1C22602F105661678BFEA00E51307F8F54CDAF1096E000EEB056",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://v7ldn.sharepoint.com/sites/Cashops/_api/web/GetFolderByServerRelativeUrl('/sites/Cashops/Shared Documents')/Folders('New Document set')",
+							"protocol": "https",
+							"host": [
+								"v7ldn",
+								"sharepoint",
+								"com"
+							],
+							"path": [
+								"sites",
+								"Cashops",
+								"_api",
+								"web",
+								"GetFolderByServerRelativeUrl('",
+								"sites",
+								"Cashops",
+								"Shared Documents')",
+								"Folders('New Document set')"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Cache-Control",
+							"value": "private, max-age=0"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json;odata=minimalmetadata;streaming=true;charset=utf-8"
+						},
+						{
+							"key": "Content-Encoding",
+							"value": "gzip"
+						},
+						{
+							"key": "Expires",
+							"value": "Tue, 19 Sep 2023 20:28:18 GMT"
+						},
+						{
+							"key": "Last-Modified",
+							"value": "Wed, 04 Oct 2023 20:28:18 GMT"
+						},
+						{
+							"key": "Vary",
+							"value": "Origin,Accept-Encoding"
+						},
+						{
+							"key": "P3P",
+							"value": "CP=\"ALL IND DSP COR ADM CONo CUR CUSo IVAo IVDo PSA PSD TAI TELo OUR SAMo CNT COM INT NAV ONL PHY PRE PUR UNI\""
+						},
+						{
+							"key": "X-NetworkStatistics",
+							"value": "0,525568,0,122,242524,0,263871"
+						},
+						{
+							"key": "X-SharePointHealthScore",
+							"value": "2"
+						},
+						{
+							"key": "X-SP-SERVERSTATE",
+							"value": "ReadOnly=0"
+						},
+						{
+							"key": "DATASERVICEVERSION",
+							"value": "3.0"
+						},
+						{
+							"key": "SPClientServiceRequestDuration",
+							"value": "16"
+						},
+						{
+							"key": "SPRequestDuration",
+							"value": "17"
+						},
+						{
+							"key": "X-AspNet-Version",
+							"value": "4.0.30319"
+						},
+						{
+							"key": "X-DataBoundary",
+							"value": "NONE"
+						},
+						{
+							"key": "X-1DSCollectorUrl",
+							"value": "https://mobile.events.data.microsoft.com/OneCollector/1.0/"
+						},
+						{
+							"key": "X-AriaCollectorURL",
+							"value": "https://browser.pipe.aria.microsoft.com/Collector/3.0/"
+						},
+						{
+							"key": "SPRequestGuid",
+							"value": "d5e8e0a0-a0cd-4000-53f5-02ae908b322c"
+						},
+						{
+							"key": "request-id",
+							"value": "d5e8e0a0-a0cd-4000-53f5-02ae908b322c"
+						},
+						{
+							"key": "MS-CV",
+							"value": "oODo1c2gAEBT9QKukIsyLA.0"
+						},
+						{
+							"key": "Strict-Transport-Security",
+							"value": "max-age=31536000"
+						},
+						{
+							"key": "X-FRAME-OPTIONS",
+							"value": "SAMEORIGIN"
+						},
+						{
+							"key": "Content-Security-Policy",
+							"value": "frame-ancestors 'self' teams.microsoft.com *.teams.microsoft.com *.skype.com *.teams.microsoft.us local.teams.office.com *.powerapps.com *.yammer.com *.officeapps.live.com *.office.com *.microsoft365.com *.stream.azure-test.net *.microsoftstream.com *.dynamics.com *.microsoft.com onedrive.live.com *.onedrive.live.com securebroker.sharepointonline.com;"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "ASP.NET"
+						},
+						{
+							"key": "MicrosoftSharePointTeamServices",
+							"value": "16.0.0.24120"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "X-MS-InvokeApp",
+							"value": "1; RequireReadOnly"
+						},
+						{
+							"key": "X-Cache",
+							"value": "CONFIG_NOCACHE"
+						},
+						{
+							"key": "X-MSEdge-Ref",
+							"value": "Ref A: 953CEAC248C240BCA324481C306ACDC0 Ref B: CH1EDGE1716 Ref C: 2023-10-04T20:28:18Z"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 04 Oct 2023 20:28:18 GMT"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"odata.metadata\": \"https://v7ldn.sharepoint.com/sites/Cashops/_api/$metadata#SP.ApiData.Folders1/@Element\",\n    \"odata.type\": \"SP.Folder\",\n    \"odata.id\": \"https://v7ldn.sharepoint.com/sites/Cashops/_api/Web/GetFolderByServerRelativePath(decodedurl='/sites/Cashops/Shared Documents/New Document set')\",\n    \"odata.editLink\": \"Web/GetFolderByServerRelativePath(decodedurl='/sites/Cashops/Shared%20Documents/New%20Document%20set')\",\n    \"Exists\": true,\n    \"ExistsAllowThrowForPolicyFailures\": true,\n    \"IsWOPIEnabled\": false,\n    \"ItemCount\": 0,\n    \"Name\": \"New Document set\",\n    \"ProgID\": \"Sharepoint.DocumentSet\",\n    \"ServerRelativeUrl\": \"/sites/Cashops/Shared Documents/New Document set\",\n    \"TimeCreated\": \"2023-10-04T14:11:15Z\",\n    \"TimeLastModified\": \"2023-10-04T14:11:15Z\",\n    \"UniqueId\": \"efa0b652-cf10-4a76-8fca-e45aed475e74\",\n    \"WelcomePage\": \"\"\n}"
+				},
+				{
+					"name": "Get folder verbose",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json;odata=verbose",
+								"type": "text"
+							},
+							{
+								"key": "Content-Length",
+								"value": "4",
+								"type": "text",
+								"disabled": true
+							},
+							{
+								"key": "X-RequestDigest",
+								"value": "0x463521BD311D3FFF22E1D0290275621A690AFB113450067015B8D9690C6CF51D9881A8AC4A4D1C22602F105661678BFEA00E51307F8F54CDAF1096E000EEB056",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "https://v7ldn.sharepoint.com/sites/Cashops/_api/web/GetFolderByServerRelativeUrl('/sites/Cashops/Shared Documents')/Folders('New Document set')",
+							"protocol": "https",
+							"host": [
+								"v7ldn",
+								"sharepoint",
+								"com"
+							],
+							"path": [
+								"sites",
+								"Cashops",
+								"_api",
+								"web",
+								"GetFolderByServerRelativeUrl('",
+								"sites",
+								"Cashops",
+								"Shared Documents')",
+								"Folders('New Document set')"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Cache-Control",
+							"value": "private, max-age=0"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json;odata=verbose;charset=utf-8"
+						},
+						{
+							"key": "Content-Encoding",
+							"value": "gzip"
+						},
+						{
+							"key": "Expires",
+							"value": "Tue, 19 Sep 2023 20:31:07 GMT"
+						},
+						{
+							"key": "Last-Modified",
+							"value": "Wed, 04 Oct 2023 20:31:07 GMT"
+						},
+						{
+							"key": "Vary",
+							"value": "Origin,Accept-Encoding"
+						},
+						{
+							"key": "P3P",
+							"value": "CP=\"ALL IND DSP COR ADM CONo CUR CUSo IVAo IVDo PSA PSD TAI TELo OUR SAMo CNT COM INT NAV ONL PHY PRE PUR UNI\""
+						},
+						{
+							"key": "X-NetworkStatistics",
+							"value": "0,525568,0,0,2051388,0,525568"
+						},
+						{
+							"key": "X-SharePointHealthScore",
+							"value": "0"
+						},
+						{
+							"key": "X-SP-SERVERSTATE",
+							"value": "ReadOnly=0"
+						},
+						{
+							"key": "DATASERVICEVERSION",
+							"value": "3.0"
+						},
+						{
+							"key": "SPClientServiceRequestDuration",
+							"value": "15"
+						},
+						{
+							"key": "SPRequestDuration",
+							"value": "16"
+						},
+						{
+							"key": "X-AspNet-Version",
+							"value": "4.0.30319"
+						},
+						{
+							"key": "X-DataBoundary",
+							"value": "NONE"
+						},
+						{
+							"key": "X-1DSCollectorUrl",
+							"value": "https://mobile.events.data.microsoft.com/OneCollector/1.0/"
+						},
+						{
+							"key": "X-AriaCollectorURL",
+							"value": "https://browser.pipe.aria.microsoft.com/Collector/3.0/"
+						},
+						{
+							"key": "SPRequestGuid",
+							"value": "ffe8e0a0-301b-4000-48c9-c8e5eb8aaa03"
+						},
+						{
+							"key": "request-id",
+							"value": "ffe8e0a0-301b-4000-48c9-c8e5eb8aaa03"
+						},
+						{
+							"key": "MS-CV",
+							"value": "oODo/xswAEBIycjl64qqAw.0"
+						},
+						{
+							"key": "Strict-Transport-Security",
+							"value": "max-age=31536000"
+						},
+						{
+							"key": "X-FRAME-OPTIONS",
+							"value": "SAMEORIGIN"
+						},
+						{
+							"key": "Content-Security-Policy",
+							"value": "frame-ancestors 'self' teams.microsoft.com *.teams.microsoft.com *.skype.com *.teams.microsoft.us local.teams.office.com *.powerapps.com *.yammer.com *.officeapps.live.com *.office.com *.microsoft365.com *.stream.azure-test.net *.microsoftstream.com *.dynamics.com *.microsoft.com onedrive.live.com *.onedrive.live.com securebroker.sharepointonline.com;"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "ASP.NET"
+						},
+						{
+							"key": "MicrosoftSharePointTeamServices",
+							"value": "16.0.0.24120"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "X-MS-InvokeApp",
+							"value": "1; RequireReadOnly"
+						},
+						{
+							"key": "X-Cache",
+							"value": "CONFIG_NOCACHE"
+						},
+						{
+							"key": "X-MSEdge-Ref",
+							"value": "Ref A: 3256D5F8FF8846E5A25A330E9412E432 Ref B: CH1EDGE1021 Ref C: 2023-10-04T20:31:07Z"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 04 Oct 2023 20:31:07 GMT"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"d\": {\n        \"__metadata\": {\n            \"id\": \"https://v7ldn.sharepoint.com/sites/Cashops/_api/Web/GetFolderByServerRelativePath(decodedurl='/sites/Cashops/Shared Documents/New Document set')\",\n            \"uri\": \"https://v7ldn.sharepoint.com/sites/Cashops/_api/Web/GetFolderByServerRelativePath(decodedurl='/sites/Cashops/Shared%20Documents/New%20Document%20set')\",\n            \"type\": \"SP.Folder\"\n        },\n        \"Files\": {\n            \"__deferred\": {\n                \"uri\": \"https://v7ldn.sharepoint.com/sites/Cashops/_api/Web/GetFolderByServerRelativePath(decodedurl='/sites/Cashops/Shared%20Documents/New%20Document%20set')/Files\"\n            }\n        },\n        \"ListItemAllFields\": {\n            \"__deferred\": {\n                \"uri\": \"https://v7ldn.sharepoint.com/sites/Cashops/_api/Web/GetFolderByServerRelativePath(decodedurl='/sites/Cashops/Shared%20Documents/New%20Document%20set')/ListItemAllFields\"\n            }\n        },\n        \"ParentFolder\": {\n            \"__deferred\": {\n                \"uri\": \"https://v7ldn.sharepoint.com/sites/Cashops/_api/Web/GetFolderByServerRelativePath(decodedurl='/sites/Cashops/Shared%20Documents/New%20Document%20set')/ParentFolder\"\n            }\n        },\n        \"Properties\": {\n            \"__deferred\": {\n                \"uri\": \"https://v7ldn.sharepoint.com/sites/Cashops/_api/Web/GetFolderByServerRelativePath(decodedurl='/sites/Cashops/Shared%20Documents/New%20Document%20set')/Properties\"\n            }\n        },\n        \"StorageMetrics\": {\n            \"__deferred\": {\n                \"uri\": \"https://v7ldn.sharepoint.com/sites/Cashops/_api/Web/GetFolderByServerRelativePath(decodedurl='/sites/Cashops/Shared%20Documents/New%20Document%20set')/StorageMetrics\"\n            }\n        },\n        \"Folders\": {\n            \"__deferred\": {\n                \"uri\": \"https://v7ldn.sharepoint.com/sites/Cashops/_api/Web/GetFolderByServerRelativePath(decodedurl='/sites/Cashops/Shared%20Documents/New%20Document%20set')/Folders\"\n            }\n        },\n        \"Exists\": true,\n        \"ExistsAllowThrowForPolicyFailures\": true,\n        \"IsWOPIEnabled\": false,\n        \"ItemCount\": 0,\n        \"Name\": \"New Document set\",\n        \"ProgID\": \"Sharepoint.DocumentSet\",\n        \"ServerRelativeUrl\": \"/sites/Cashops/Shared Documents/New Document set\",\n        \"TimeCreated\": \"2023-10-04T14:11:15Z\",\n        \"TimeLastModified\": \"2023-10-04T14:11:15Z\",\n        \"UniqueId\": \"efa0b652-cf10-4a76-8fca-e45aed475e74\",\n        \"WelcomePage\": \"\"\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "Create Doc-set",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6ImxITEl1NG1vS3F6UGNva3dsZkNSUEh5amw1ZyIsImtpZCI6ImxITEl1NG1vS3F6UGNva3dsZkNSUEh5amw1ZyJ9.eyJhdWQiOiJodHRwczovL3RoZWNsb3VkaWR0LnNoYXJlcG9pbnQudXMiLCJpc3MiOiJodHRwczovL3N0cy53aW5kb3dzLm5ldC9kNzRhZDEwNy1lMGEzLTQ1ZmYtYWE5Yy0yODZmNzczMjZhNzAvIiwiaWF0IjoxNjk4OTQ4NDkyLCJuYmYiOjE2OTg5NDg0OTIsImV4cCI6MTY5ODk1MjM5MiwiYWlvIjoiNDJKZ1lFZ1BlSGZZWVdQS21haC9VK3pzTDNOcEFBQT0iLCJhcHBfZGlzcGxheW5hbWUiOiJHRElULU11bGVTb2Z0LUJFRVAiLCJhcHBpZCI6IjVmMjc2NDVmLWYwODMtNGFiYi1iYWU2LWM0YjhkYzdkZGY0NCIsImFwcGlkYWNyIjoiMiIsImlkcCI6Imh0dHBzOi8vc3RzLndpbmRvd3MubmV0L2Q3NGFkMTA3LWUwYTMtNDVmZi1hYTljLTI4NmY3NzMyNmE3MC8iLCJpZHR5cCI6ImFwcCIsIm9pZCI6ImQ0ZTYzN2RhLTk3YTEtNDc2MC1hNTA3LWMxNDY0MThhOTRiNSIsInJoIjoiMC5Dd01BQjlGSzE2UGdfMFdxbkNodmR6SnFjQU1BQUFBQUFQRVB6Z0FBQUFBQUFBQURBQUEuIiwicm9sZXMiOlsiU2l0ZXMuRnVsbENvbnRyb2wuQWxsIl0sInNpZCI6IjZhNTNlOTMyLTEwMzgtNGY2NC1iNjIwLWExNjJkOTkyYzZhMiIsInN1YiI6ImQ0ZTYzN2RhLTk3YTEtNDc2MC1hNTA3LWMxNDY0MThhOTRiNSIsInRpZCI6ImQ3NGFkMTA3LWUwYTMtNDVmZi1hYTljLTI4NmY3NzMyNmE3MCIsInV0aSI6Imk4bVdDRjhRZVVPcnYzV1VJTklPQUEiLCJ2ZXIiOiIxLjAifQ.DNOTIaftOo0e79YVc2H6D4m2y66kfSQ0WB7p2iZHU6uNtzTVZ64ixieIGhYsrTvHSJqaYVG_8YhoZ6kNn4gwvn5WFpezS5P_YKyA5tp0G2Yji5ZBAqtzlm6g6QoC4dsFyy_nH6FlVp0EQn6V05NL5-9fq1j0xUmHSTUwpl8hHu7qyPS4YDtTtSefJNhbp6Lg70Qf37RDmVqhth9-im2h7dVRV-AcQnVe5JewvxJ7I5PT8hi5M6p3VVc3Q7_siRS8-uzrMGumJYpA18VIQPI0WimkwtwZ5sPg-ctw6uwpxIp6EC-qCzvBzYJWSYt6JI8_pUVXbjpYmKmJub32bkiEgg",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "slug",
+						"value": "/sites/Cashops/Shared Documents/MOCK2|0x0120D52000508004249CD6104BBCBFCFCCB24C241F00900ED28C93EA484287E0E5D704168238",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"Title\": \"MOCK2\",\r\n    \"ContentTypeId\": \"0x0120D52000A635FED83F284843B7CC338DB2A5F926\",\r\n    \"Path\": \"/sites/Shared Documents/Bypostman\",\r\n    \"ContentType\": \"SP.Data.Shared_x0020_DocumentsItem\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://{{host}}/sites/Cashops/_vti_bin/ListData.svc/Documents",
+					"protocol": "https",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"sites",
+						"Cashops",
+						"_vti_bin",
+						"ListData.svc",
+						"Documents"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "convert folder to docset",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ii1LSTNROW5OUjdiUm9meG1lWm9YcWJIWkdldyIsImtpZCI6Ii1LSTNROW5OUjdiUm9meG1lWm9YcWJIWkdldyJ9.eyJhdWQiOiJodHRwczovL3Y3bGRuLnNoYXJlcG9pbnQuY29tIiwiaXNzIjoiaHR0cHM6Ly9zdHMud2luZG93cy5uZXQvZmE2OGY3YzAtZDNmNS00OTlkLTg0YjItZGZiZjAxODc4ODYwLyIsImlhdCI6MTY5NjQ2MjI4NiwibmJmIjoxNjk2NDYyMjg2LCJleHAiOjE2OTY0NjYxODYsImFpbyI6IkUyRmdZSkE4MHhwNGk4RmlUdFZXSzhsdDg2OC9CQUE9IiwiYXBwX2Rpc3BsYXluYW1lIjoic2hhcmVwb2ludCBjb2RlIiwiYXBwaWQiOiIzNzk5MDFhNS0xYzdjLTQ1Y2QtYTBhMy1hZDA4YTliYmUzOTkiLCJhcHBpZGFjciI6IjIiLCJpZHAiOiJodHRwczovL3N0cy53aW5kb3dzLm5ldC9mYTY4ZjdjMC1kM2Y1LTQ5OWQtODRiMi1kZmJmMDE4Nzg4NjAvIiwiaWR0eXAiOiJhcHAiLCJvaWQiOiI3ODQyMmRlYy05ODlkLTRkMTAtYjk0Ni04MjZiMWQ1Mjg0N2IiLCJyaCI6IjAuQVZBQXdQZG8tdlhUblVtRXN0LV9BWWVJWUFNQUFBQUFBUEVQemdBQUFBQUFBQUJfQUFBLiIsInJvbGVzIjpbIlNpdGVzLlNlbGVjdGVkIiwiU2l0ZXMuTWFuYWdlLkFsbCIsIlNpdGVzLlJlYWQuQWxsIiwiU2l0ZXMuUmVhZFdyaXRlLkFsbCIsIlNpdGVzLkZ1bGxDb250cm9sLkFsbCJdLCJzaWQiOiJiMDE0YzUwMC1lNTAxLTRmMGQtOThjNy0zOTIyZGY4YWE2MTEiLCJzdWIiOiI3ODQyMmRlYy05ODlkLTRkMTAtYjk0Ni04MjZiMWQ1Mjg0N2IiLCJ0aWQiOiJmYTY4ZjdjMC1kM2Y1LTQ5OWQtODRiMi1kZmJmMDE4Nzg4NjAiLCJ1dGkiOiJYOGFmVnNIeE8weV9ldjJlS0Myb0FBIiwidmVyIjoiMS4wIn0.PUo9ExxnromNdrUSAJ3pNmqVI1lj5I1nrIyCE2CqF39KxoCAsnltLgb9FclKxHEOpe4aHB0CdcXiB748eWf7opmYImBokFPv-u_7f_MAW_MwL2W2_4ILz0KWNH5Gv_uScnWbBnClW4NfCAZK9kSGNrC2BzApTRD4-xbg0H0pdIe35h1m8fs_4QPD0E7uzptPLoG3t33Z9-R1h8UmAKKnBBLYx4rC5jpNkpjEmysEYjS2rLX5k1_wXsfP0OLsM0wdPkJC6EuI-ohgFKQ2k_In4TNs1KB_63OsxoIuUQEGBbcGc_OQtPJTlRqaA4NbY7LVP2j53Nzb9j3rYJ2cdcrxmg",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json;odata=verbose",
+						"type": "text"
+					},
+					{
+						"key": "If-Match",
+						"value": "\"26144f7a-357f-4941-9362-25705429ebf9,1\"",
+						"type": "text"
+					},
+					{
+						"key": "X-RequestDigest",
+						"value": "0x463521BD311D3FFF22E1D0290275621A690AFB113450067015B8D9690C6CF51D9881A8AC4A4D1C22602F105661678BFEA00E51307F8F54CDAF1096E000EEB056",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"ContentTypeId\": \"0x0120D52000A635FED83F284843B7CC338DB2A5F926\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://{{host}}/sites/Cashops/_api/web/GetFolderByServerRelativeUrl('/sites/Cashops/Shared Documents')/Folders('Bypostman')/ListItemAllFields",
+					"protocol": "https",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"sites",
+						"Cashops",
+						"_api",
+						"web",
+						"GetFolderByServerRelativeUrl('",
+						"sites",
+						"Cashops",
+						"Shared Documents')",
+						"Folders('Bypostman')",
+						"ListItemAllFields"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create a list",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6ImxITEl1NG1vS3F6UGNva3dsZkNSUEh5amw1ZyIsImtpZCI6ImxITEl1NG1vS3F6UGNva3dsZkNSUEh5amw1ZyJ9.eyJhdWQiOiJodHRwczovL3RoZWNsb3VkaWR0LnNoYXJlcG9pbnQudXMiLCJpc3MiOiJodHRwczovL3N0cy53aW5kb3dzLm5ldC9kNzRhZDEwNy1lMGEzLTQ1ZmYtYWE5Yy0yODZmNzczMjZhNzAvIiwiaWF0IjoxNjk5Mjg5MjAxLCJuYmYiOjE2OTkyODkyMDEsImV4cCI6MTY5OTI5MzEwMSwiYWlvIjoiNDJKZ1lGaDBlK2Z2T2RVSHU3NS9tUGpuWEw5OEJRQT0iLCJhcHBfZGlzcGxheW5hbWUiOiJHRElULU11bGVTb2Z0LUJFRVAiLCJhcHBpZCI6IjVmMjc2NDVmLWYwODMtNGFiYi1iYWU2LWM0YjhkYzdkZGY0NCIsImFwcGlkYWNyIjoiMSIsImlkcCI6Imh0dHBzOi8vc3RzLndpbmRvd3MubmV0L2Q3NGFkMTA3LWUwYTMtNDVmZi1hYTljLTI4NmY3NzMyNmE3MC8iLCJpZHR5cCI6ImFwcCIsIm9pZCI6ImQ0ZTYzN2RhLTk3YTEtNDc2MC1hNTA3LWMxNDY0MThhOTRiNSIsInJoIjoiMC5Dd01BQjlGSzE2UGdfMFdxbkNodmR6SnFjQU1BQUFBQUFQRVB6Z0FBQUFBQUFBQURBQUEuIiwicm9sZXMiOlsiU2l0ZXMuRnVsbENvbnRyb2wuQWxsIl0sInNpZCI6ImFhODQyNzNhLThlNzUtNDhhYS04ZDAxLWU4YWU4ODkyNzAxYSIsInN1YiI6ImQ0ZTYzN2RhLTk3YTEtNDc2MC1hNTA3LWMxNDY0MThhOTRiNSIsInRpZCI6ImQ3NGFkMTA3LWUwYTMtNDVmZi1hYTljLTI4NmY3NzMyNmE3MCIsInV0aSI6Ijk2RVAtLVVuTDBlS0JKSkxXUU1jQUEiLCJ2ZXIiOiIxLjAifQ.bn_gshRa-swUiZJJ9GBlH5v04bKUa4AThbePcKzlgjWu16aoMXsKXJWkIhskhCJVpZdsHciQdRnW4EJE64DvIF0Yna6_WdMUOz1GofE-oroXLwmby6Ou2kr290nTxcecbOQaXu5Jd-TzyX1sqfAFEBZZHTpSdWHMl81FwVBAornbwPOZbYsL1TWtOLD2Q4AIzPc_L3S9DwjZzQZpeAiZRqqzPI3E33bLMY7P_MvYY0fgR_jA-VACbQA0T5alMmRCiOWYQvFwqPdbwIHFY-NRBMW--WtWe-qXTVUaOo3L33ln8hUCR4qbw2IY00WnOaFJPlFZaNHYlW4bPo97PVhSBA",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"AllowContentTypes\": true,\r\n    \"BaseTemplate\": 100,\r\n    \"ContentTypeEnables\": \"My mock list description\",\r\n    \"Title\": \"My MOCK List\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://{{host}}/sites/Cashops/_api/web/lists",
+					"protocol": "https",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"sites",
+						"Cashops",
+						"_api",
+						"web",
+						"lists"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create an item on the list",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6ImxITEl1NG1vS3F6UGNva3dsZkNSUEh5amw1ZyIsImtpZCI6ImxITEl1NG1vS3F6UGNva3dsZkNSUEh5amw1ZyJ9.eyJhdWQiOiJodHRwczovL3RoZWNsb3VkaWR0LnNoYXJlcG9pbnQudXMiLCJpc3MiOiJodHRwczovL3N0cy53aW5kb3dzLm5ldC9kNzRhZDEwNy1lMGEzLTQ1ZmYtYWE5Yy0yODZmNzczMjZhNzAvIiwiaWF0IjoxNjk5Mjg5MjAxLCJuYmYiOjE2OTkyODkyMDEsImV4cCI6MTY5OTI5MzEwMSwiYWlvIjoiNDJKZ1lGaDBlK2Z2T2RVSHU3NS9tUGpuWEw5OEJRQT0iLCJhcHBfZGlzcGxheW5hbWUiOiJHRElULU11bGVTb2Z0LUJFRVAiLCJhcHBpZCI6IjVmMjc2NDVmLWYwODMtNGFiYi1iYWU2LWM0YjhkYzdkZGY0NCIsImFwcGlkYWNyIjoiMSIsImlkcCI6Imh0dHBzOi8vc3RzLndpbmRvd3MubmV0L2Q3NGFkMTA3LWUwYTMtNDVmZi1hYTljLTI4NmY3NzMyNmE3MC8iLCJpZHR5cCI6ImFwcCIsIm9pZCI6ImQ0ZTYzN2RhLTk3YTEtNDc2MC1hNTA3LWMxNDY0MThhOTRiNSIsInJoIjoiMC5Dd01BQjlGSzE2UGdfMFdxbkNodmR6SnFjQU1BQUFBQUFQRVB6Z0FBQUFBQUFBQURBQUEuIiwicm9sZXMiOlsiU2l0ZXMuRnVsbENvbnRyb2wuQWxsIl0sInNpZCI6ImFhODQyNzNhLThlNzUtNDhhYS04ZDAxLWU4YWU4ODkyNzAxYSIsInN1YiI6ImQ0ZTYzN2RhLTk3YTEtNDc2MC1hNTA3LWMxNDY0MThhOTRiNSIsInRpZCI6ImQ3NGFkMTA3LWUwYTMtNDVmZi1hYTljLTI4NmY3NzMyNmE3MCIsInV0aSI6Ijk2RVAtLVVuTDBlS0JKSkxXUU1jQUEiLCJ2ZXIiOiIxLjAifQ.bn_gshRa-swUiZJJ9GBlH5v04bKUa4AThbePcKzlgjWu16aoMXsKXJWkIhskhCJVpZdsHciQdRnW4EJE64DvIF0Yna6_WdMUOz1GofE-oroXLwmby6Ou2kr290nTxcecbOQaXu5Jd-TzyX1sqfAFEBZZHTpSdWHMl81FwVBAornbwPOZbYsL1TWtOLD2Q4AIzPc_L3S9DwjZzQZpeAiZRqqzPI3E33bLMY7P_MvYY0fgR_jA-VACbQA0T5alMmRCiOWYQvFwqPdbwIHFY-NRBMW--WtWe-qXTVUaOo3L33ln8hUCR4qbw2IY00WnOaFJPlFZaNHYlW4bPo97PVhSBA",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "default"
+					},
+					{
+						"key": "X-RequestDigest",
+						"value": "",
+						"type": "default",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"Title\": \"Mock Item\",\r\n    \"ContentTypeId\":\"0x0120D52000508004249CD6104BBCBFCFCCB24C241F00900ED28C93EA484287E0E5D704168238\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://{{host}}s/sites/Cashops/_api/web/lists/Getbytitle('My MOCK List')/items",
+					"protocol": "https",
+					"host": [
+						"{{host}}s"
+					],
+					"path": [
+						"sites",
+						"Cashops",
+						"_api",
+						"web",
+						"lists",
+						"Getbytitle('My MOCK List')",
+						"items"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get LIstItemEntityTypeFullName",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6ImxITEl1NG1vS3F6UGNva3dsZkNSUEh5amw1ZyIsImtpZCI6ImxITEl1NG1vS3F6UGNva3dsZkNSUEh5amw1ZyJ9.eyJhdWQiOiJodHRwczovL3RoZWNsb3VkaWR0LnNoYXJlcG9pbnQudXMiLCJpc3MiOiJodHRwczovL3N0cy53aW5kb3dzLm5ldC9kNzRhZDEwNy1lMGEzLTQ1ZmYtYWE5Yy0yODZmNzczMjZhNzAvIiwiaWF0IjoxNjk5Mjg5MjAxLCJuYmYiOjE2OTkyODkyMDEsImV4cCI6MTY5OTI5MzEwMSwiYWlvIjoiNDJKZ1lGaDBlK2Z2T2RVSHU3NS9tUGpuWEw5OEJRQT0iLCJhcHBfZGlzcGxheW5hbWUiOiJHRElULU11bGVTb2Z0LUJFRVAiLCJhcHBpZCI6IjVmMjc2NDVmLWYwODMtNGFiYi1iYWU2LWM0YjhkYzdkZGY0NCIsImFwcGlkYWNyIjoiMSIsImlkcCI6Imh0dHBzOi8vc3RzLndpbmRvd3MubmV0L2Q3NGFkMTA3LWUwYTMtNDVmZi1hYTljLTI4NmY3NzMyNmE3MC8iLCJpZHR5cCI6ImFwcCIsIm9pZCI6ImQ0ZTYzN2RhLTk3YTEtNDc2MC1hNTA3LWMxNDY0MThhOTRiNSIsInJoIjoiMC5Dd01BQjlGSzE2UGdfMFdxbkNodmR6SnFjQU1BQUFBQUFQRVB6Z0FBQUFBQUFBQURBQUEuIiwicm9sZXMiOlsiU2l0ZXMuRnVsbENvbnRyb2wuQWxsIl0sInNpZCI6ImFhODQyNzNhLThlNzUtNDhhYS04ZDAxLWU4YWU4ODkyNzAxYSIsInN1YiI6ImQ0ZTYzN2RhLTk3YTEtNDc2MC1hNTA3LWMxNDY0MThhOTRiNSIsInRpZCI6ImQ3NGFkMTA3LWUwYTMtNDVmZi1hYTljLTI4NmY3NzMyNmE3MCIsInV0aSI6Ijk2RVAtLVVuTDBlS0JKSkxXUU1jQUEiLCJ2ZXIiOiIxLjAifQ.bn_gshRa-swUiZJJ9GBlH5v04bKUa4AThbePcKzlgjWu16aoMXsKXJWkIhskhCJVpZdsHciQdRnW4EJE64DvIF0Yna6_WdMUOz1GofE-oroXLwmby6Ou2kr290nTxcecbOQaXu5Jd-TzyX1sqfAFEBZZHTpSdWHMl81FwVBAornbwPOZbYsL1TWtOLD2Q4AIzPc_L3S9DwjZzQZpeAiZRqqzPI3E33bLMY7P_MvYY0fgR_jA-VACbQA0T5alMmRCiOWYQvFwqPdbwIHFY-NRBMW--WtWe-qXTVUaOo3L33ln8hUCR4qbw2IY00WnOaFJPlFZaNHYlW4bPo97PVhSBA",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "default"
+					},
+					{
+						"key": "",
+						"value": "",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"url": {
+					"raw": "https://{{host}}/sites/Cashops/_api/web/lists/Getbytitle('My MOCK List')?$select=ListItemEntityFullName",
+					"protocol": "https",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"sites",
+						"Cashops",
+						"_api",
+						"web",
+						"lists",
+						"Getbytitle('My MOCK List')"
+					],
+					"query": [
+						{
+							"key": "$select",
+							"value": "ListItemEntityFullName"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get a item from a list",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6ImxITEl1NG1vS3F6UGNva3dsZkNSUEh5amw1ZyIsImtpZCI6ImxITEl1NG1vS3F6UGNva3dsZkNSUEh5amw1ZyJ9.eyJhdWQiOiJodHRwczovL3RoZWNsb3VkaWR0LnNoYXJlcG9pbnQudXMiLCJpc3MiOiJodHRwczovL3N0cy53aW5kb3dzLm5ldC9kNzRhZDEwNy1lMGEzLTQ1ZmYtYWE5Yy0yODZmNzczMjZhNzAvIiwiaWF0IjoxNjk5Mjg5MjAxLCJuYmYiOjE2OTkyODkyMDEsImV4cCI6MTY5OTI5MzEwMSwiYWlvIjoiNDJKZ1lGaDBlK2Z2T2RVSHU3NS9tUGpuWEw5OEJRQT0iLCJhcHBfZGlzcGxheW5hbWUiOiJHRElULU11bGVTb2Z0LUJFRVAiLCJhcHBpZCI6IjVmMjc2NDVmLWYwODMtNGFiYi1iYWU2LWM0YjhkYzdkZGY0NCIsImFwcGlkYWNyIjoiMSIsImlkcCI6Imh0dHBzOi8vc3RzLndpbmRvd3MubmV0L2Q3NGFkMTA3LWUwYTMtNDVmZi1hYTljLTI4NmY3NzMyNmE3MC8iLCJpZHR5cCI6ImFwcCIsIm9pZCI6ImQ0ZTYzN2RhLTk3YTEtNDc2MC1hNTA3LWMxNDY0MThhOTRiNSIsInJoIjoiMC5Dd01BQjlGSzE2UGdfMFdxbkNodmR6SnFjQU1BQUFBQUFQRVB6Z0FBQUFBQUFBQURBQUEuIiwicm9sZXMiOlsiU2l0ZXMuRnVsbENvbnRyb2wuQWxsIl0sInNpZCI6ImFhODQyNzNhLThlNzUtNDhhYS04ZDAxLWU4YWU4ODkyNzAxYSIsInN1YiI6ImQ0ZTYzN2RhLTk3YTEtNDc2MC1hNTA3LWMxNDY0MThhOTRiNSIsInRpZCI6ImQ3NGFkMTA3LWUwYTMtNDVmZi1hYTljLTI4NmY3NzMyNmE3MCIsInV0aSI6Ijk2RVAtLVVuTDBlS0JKSkxXUU1jQUEiLCJ2ZXIiOiIxLjAifQ.bn_gshRa-swUiZJJ9GBlH5v04bKUa4AThbePcKzlgjWu16aoMXsKXJWkIhskhCJVpZdsHciQdRnW4EJE64DvIF0Yna6_WdMUOz1GofE-oroXLwmby6Ou2kr290nTxcecbOQaXu5Jd-TzyX1sqfAFEBZZHTpSdWHMl81FwVBAornbwPOZbYsL1TWtOLD2Q4AIzPc_L3S9DwjZzQZpeAiZRqqzPI3E33bLMY7P_MvYY0fgR_jA-VACbQA0T5alMmRCiOWYQvFwqPdbwIHFY-NRBMW--WtWe-qXTVUaOo3L33ln8hUCR4qbw2IY00WnOaFJPlFZaNHYlW4bPo97PVhSBA",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "default"
+					}
+				],
+				"url": {
+					"raw": "https://{{host}}/sites/Cashops/_api/web/lists/Getbytitle('My MOCK List')/items('1')",
+					"protocol": "https",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"sites",
+						"Cashops",
+						"_api",
+						"web",
+						"lists",
+						"Getbytitle('My MOCK List')",
+						"items('1')"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "change contnet type of a item in a list",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6ImxITEl1NG1vS3F6UGNva3dsZkNSUEh5amw1ZyIsImtpZCI6ImxITEl1NG1vS3F6UGNva3dsZkNSUEh5amw1ZyJ9.eyJhdWQiOiJodHRwczovL3RoZWNsb3VkaWR0LnNoYXJlcG9pbnQudXMiLCJpc3MiOiJodHRwczovL3N0cy53aW5kb3dzLm5ldC9kNzRhZDEwNy1lMGEzLTQ1ZmYtYWE5Yy0yODZmNzczMjZhNzAvIiwiaWF0IjoxNjk5Mjg5MjAxLCJuYmYiOjE2OTkyODkyMDEsImV4cCI6MTY5OTI5MzEwMSwiYWlvIjoiNDJKZ1lGaDBlK2Z2T2RVSHU3NS9tUGpuWEw5OEJRQT0iLCJhcHBfZGlzcGxheW5hbWUiOiJHRElULU11bGVTb2Z0LUJFRVAiLCJhcHBpZCI6IjVmMjc2NDVmLWYwODMtNGFiYi1iYWU2LWM0YjhkYzdkZGY0NCIsImFwcGlkYWNyIjoiMSIsImlkcCI6Imh0dHBzOi8vc3RzLndpbmRvd3MubmV0L2Q3NGFkMTA3LWUwYTMtNDVmZi1hYTljLTI4NmY3NzMyNmE3MC8iLCJpZHR5cCI6ImFwcCIsIm9pZCI6ImQ0ZTYzN2RhLTk3YTEtNDc2MC1hNTA3LWMxNDY0MThhOTRiNSIsInJoIjoiMC5Dd01BQjlGSzE2UGdfMFdxbkNodmR6SnFjQU1BQUFBQUFQRVB6Z0FBQUFBQUFBQURBQUEuIiwicm9sZXMiOlsiU2l0ZXMuRnVsbENvbnRyb2wuQWxsIl0sInNpZCI6ImFhODQyNzNhLThlNzUtNDhhYS04ZDAxLWU4YWU4ODkyNzAxYSIsInN1YiI6ImQ0ZTYzN2RhLTk3YTEtNDc2MC1hNTA3LWMxNDY0MThhOTRiNSIsInRpZCI6ImQ3NGFkMTA3LWUwYTMtNDVmZi1hYTljLTI4NmY3NzMyNmE3MCIsInV0aSI6Ijk2RVAtLVVuTDBlS0JKSkxXUU1jQUEiLCJ2ZXIiOiIxLjAifQ.bn_gshRa-swUiZJJ9GBlH5v04bKUa4AThbePcKzlgjWu16aoMXsKXJWkIhskhCJVpZdsHciQdRnW4EJE64DvIF0Yna6_WdMUOz1GofE-oroXLwmby6Ou2kr290nTxcecbOQaXu5Jd-TzyX1sqfAFEBZZHTpSdWHMl81FwVBAornbwPOZbYsL1TWtOLD2Q4AIzPc_L3S9DwjZzQZpeAiZRqqzPI3E33bLMY7P_MvYY0fgR_jA-VACbQA0T5alMmRCiOWYQvFwqPdbwIHFY-NRBMW--WtWe-qXTVUaOo3L33ln8hUCR4qbw2IY00WnOaFJPlFZaNHYlW4bPo97PVhSBA",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "default"
+					},
+					{
+						"key": "If-Match",
+						"value": "",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"ContentTypeId\": \"0x0120D52000508004249CD6104BBCBFCFCCB24C241F00900ED28C93EA484287E0E5D704168238\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://{{host}}/sites/Cashops/_api/web/lists/Getbytitle('My MOCK List')/items('1')",
+					"protocol": "https",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"sites",
+						"Cashops",
+						"_api",
+						"web",
+						"lists",
+						"Getbytitle('My MOCK List')",
+						"items('1')"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update lookup fields",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6ImxITEl1NG1vS3F6UGNva3dsZkNSUEh5amw1ZyIsImtpZCI6ImxITEl1NG1vS3F6UGNva3dsZkNSUEh5amw1ZyJ9.eyJhdWQiOiJodHRwczovL3RoZWNsb3VkaWR0LnNoYXJlcG9pbnQudXMiLCJpc3MiOiJodHRwczovL3N0cy53aW5kb3dzLm5ldC9kNzRhZDEwNy1lMGEzLTQ1ZmYtYWE5Yy0yODZmNzczMjZhNzAvIiwiaWF0IjoxNzAwNTc4NTY4LCJuYmYiOjE3MDA1Nzg1NjgsImV4cCI6MTcwMDU4MjQ2OCwiYWlvIjoiNDJKZ1lPQzMzWFpvY2IwQms4V3ZDbVlwN1EwL0FRPT0iLCJhcHBfZGlzcGxheW5hbWUiOiJHRElULU11bGVTb2Z0LUJFRVAiLCJhcHBpZCI6IjVmMjc2NDVmLWYwODMtNGFiYi1iYWU2LWM0YjhkYzdkZGY0NCIsImFwcGlkYWNyIjoiMiIsImlkcCI6Imh0dHBzOi8vc3RzLndpbmRvd3MubmV0L2Q3NGFkMTA3LWUwYTMtNDVmZi1hYTljLTI4NmY3NzMyNmE3MC8iLCJpZHR5cCI6ImFwcCIsIm9pZCI6ImQ0ZTYzN2RhLTk3YTEtNDc2MC1hNTA3LWMxNDY0MThhOTRiNSIsInJoIjoiMC5Dd01BQjlGSzE2UGdfMFdxbkNodmR6SnFjQU1BQUFBQUFQRVB6Z0FBQUFBQUFBQURBQUEuIiwicm9sZXMiOlsiU2l0ZXMuTWFuYWdlLkFsbCIsIlNpdGVzLlJlYWRXcml0ZS5BbGwiLCJTaXRlcy5GdWxsQ29udHJvbC5BbGwiXSwic2lkIjoiNDY0YmE2MDItYTdjOS00ZDY4LWE1MDEtOWY2OTg1NzI1ODllIiwic3ViIjoiZDRlNjM3ZGEtOTdhMS00NzYwLWE1MDctYzE0NjQxOGE5NGI1IiwidGlkIjoiZDc0YWQxMDctZTBhMy00NWZmLWFhOWMtMjg2Zjc3MzI2YTcwIiwidXRpIjoiM3d0bWxIRkh4RU9oQVhOWlZqa19BQSIsInZlciI6IjEuMCJ9.SsvTu4gSyHHd67jMSablIEj_4oueDFxreZ-Hxyo6DIarpJM1A1F7eOpsFAmrmHCU7QMzE43lBBfLBBomDocn0MriqVDZYEmONaBFkypW0h27BPAn7tFsrakZpDSZn12GTgBYkkPKI5jztrvtJ7RvMHa0y4myl3KbD8_GHzNKQJDkZEWKDRynoDlWk8EqYOjKsfR5PYJ8JosmOgmCAUX7IRRpsuOAsWmd3R9pEE5ZbvfWORxVFZJduo39YmhDMkKyV515DYCIj2SlIM_z2o8VMbi0JltRDx_qtjMFpSnrF_5zpX9OKNzXHg7hUeSLBinJe2ees7lZLGTkopjXdGKqhw",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "default"
+					},
+					{
+						"key": "If-Match",
+						"value": "\"7ed11baf-1a2c-4817-bdc6-1f067c6a96fc,16\"",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": " {\r\n  \"finance_x002d_PMId\": 21\r\n\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://{{host}}/teams/CashOps/_api/Web/Lists(guid'3e39dd14-cb71-45de-9084-3fabd6cd4edc')/Items(39)",
+					"protocol": "https",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"teams",
+						"CashOps",
+						"_api",
+						"Web",
+						"Lists(guid'3e39dd14-cb71-45de-9084-3fabd6cd4edc')",
+						"Items(39)"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
